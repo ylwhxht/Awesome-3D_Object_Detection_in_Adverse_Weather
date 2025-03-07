@@ -1,7 +1,7 @@
 # paper list about 3D Object Detection in Adverse Weather
 
 <p align="center">
-<img src="images/detection.gif", width="1000">
+<img src="./images/detection.gif", width="1000">
 </p>
 
 *图摘自[Kradar](https://github.com/kaist-avelab/K-Radar)*
