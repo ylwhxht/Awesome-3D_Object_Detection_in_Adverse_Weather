@@ -451,7 +451,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 [[paper](https://arxiv.org/pdf/2408.03677)] [[code](https://github.com/ylwhxht/L4DR)]  
 
 
--
+---
 ## <a id="icp"> with Cooperative Perception <a href="#table-of-contents">🔝</a> 
 ### *2024*
 
@@ -461,6 +461,6 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
  * **Weather-Aware Collaborative Perception With Uncertainty Reduction has been published**, TITS 2024                  
 [[paper](https://ieeexplore.ieee.org/document/10739668)] [[data](https://waymo.com/open/challenges/2020/domain-adaptation/)]   
 ### *2025*
----
+
  * **V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion**, CVPR 2025                  
 [[paper](https://arxiv.org/abs/2411.08402)] [[code](https://github.com/ylwhxht/V2X-R)]      
