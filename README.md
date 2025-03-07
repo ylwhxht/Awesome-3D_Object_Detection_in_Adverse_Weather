@@ -156,7 +156,8 @@ ICPRS 2022
 ### *2023*
 
 
-* **Benchmarking Robustness of 3D Object Detection to Common Corruptions in Autonomous Driving**,CVPR 2023                  
+* **Benchmarking Robustness of 3D Object Detection to Common Corruptions in Autonomous Driving**                  
+CVPR 2023                  
 [[paper](https://arxiv.org/abs/2303.11040)] [[code](https://github.com/thu-ml/3D_Corruptions_AD)]  
 ### *2024*
 
@@ -392,7 +393,8 @@ ICRA 2022
  Access 2022                  
 [[paper](https://arxiv.org/abs/2303.11040)]
 
-* **Robust 3D Object Detection in Cold Weather Conditions**,IV 2022                  
+* **Robust 3D Object Detection in Cold Weather Conditions**                  
+IV 2022                  
 [[paper](https://ieeexplore.ieee.org/abstract/document/9827398)]  
 
 * **Robust-FusionNet: Deep Multimodal Sensor Fusion for 3-D Object Detection Under Severe Weather Conditions**                  
