@@ -277,10 +277,8 @@ ICRA 2022
  * **A Scalable and Accurate De-Snowing Algorithm for LiDAR Point Clouds in Winter**                  
 Remote Sens. 2022                  
  [[paper](https://www.mdpi.com/2072-4292/14/6/1468)]   
-  * **AdverseNet: A LiDAR Point Cloud Denoising Network for Autonomous Driving in Rainy                  
-Snowy                  
-and Foggy Weather**                  
-ICUS. 2022                  
+  * **AdverseNet: A LiDAR Point Cloud Denoising Network for Autonomous Driving in Rainy Snowy and Foggy Weather**                  
+ICUS 2022                  
  [[paper](https://ieeexplore.ieee.org/abstract/document/9986567)] [[code](https://github.com/Naclzno/AdverseNet)]
 
  * **LiSnowNet: Real-time Snow Removal for LiDAR Point Clouds**                  
@@ -487,8 +485,9 @@ CVPR 2021
 ### *2022*
 
 * **Modality-Agnostic Learning for Radar-Lidar Fusion in Vehicle Detection**                  
-CVPR 2022
-[[paper](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Modality-Agnostic_Learning_for_Radar-Lidar_Fusion_in_Vehicle_Detection_CVPR_2022_paper.pdf)] 
+CVPR 2022                  
+[[paper](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Modality-Agnostic_Learning_for_Radar-Lidar_Fusion_in_Vehicle_Detection_CVPR_2022_paper.pdf)]
+
 ### *2023*
 
 * **ST-MVDNET++: IMPROVE VEHICLE DETECTION WITH LIDAR-RADAR GEOMETRICAL AUGMENTATION VIA SELF-TRAINING**                  
