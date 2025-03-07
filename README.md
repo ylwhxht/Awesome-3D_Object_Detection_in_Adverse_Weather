@@ -1,4 +1,4 @@
-# paper list about 3D Object Detection in Adverse Weather
+# Paper List about 3D Object Detection in Adverse Weather
 
 <p align="center">
 <img src="./images/detection.gif", width="1000">
