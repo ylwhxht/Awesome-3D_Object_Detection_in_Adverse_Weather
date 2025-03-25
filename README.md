@@ -83,7 +83,7 @@ Sensors 2025
 ----
 ## <a id="dataset"> Datasets <a href="#table-of-contents">🔝</a> 
 
-### *2021*
+### *2020*
 
  * **[DENSE(STF)]: Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather**                  
 CVPR 2020                  
@@ -193,7 +193,7 @@ Arxiv  2021
 [[paper](https://arxiv.org/abs/2107.07004)] [[code](https://github.com/velatkilic/LISA)]    
 ### *2022*
 
- * **[Snow Simulation]: https://arxiv.org/abs/2203.15118**                  
+ * **[Snow Simulation]:**                  
 CVPR 2022                  
 [[paper](https://arxiv.org/abs/2203.15118)] [[code](https://github.com/SysCV/LiDAR_snow_sim)]    
 
