@@ -305,10 +305,10 @@ ICTC. 2023
  [[paper](https://ieeexplore.ieee.org/abstract/document/10392388)]
 
 
+ * **Denoising Point Clouds with Intensity and Spatial Features in Rainy Weather**                  
+ICIP 2023                 
+ [[paper](https://ieeexplore.ieee.org/abstract/document/10223164)]
 
- * **DCOR: Dynamic Channel-Wise Outlier Removal to De-Noise LiDAR Data Corrupted by Snow**                  
-ICIP 2023                  
- [[paper](https://ieeexplore.ieee.org/abstract/document/10401021)]
 
 * **GAN Inversion Based Point Clouds Denoising in Foggy Scenarios for Autonomous Driving**                  
 ICDL 2023                  
@@ -317,10 +317,10 @@ ICDL 2023
 
 ### *2024*
 
- * **Denoising Point Clouds with Intensity and Spatial Features in Rainy Weather**                  
-TITS 2024                  
- [[paper](https://ieeexplore.ieee.org/abstract/document/10223164)]
 
+ * **DCOR: Dynamic Channel-Wise Outlier Removal to De-Noise LiDAR Data Corrupted by Snow**                  
+TITS 2024               
+ [[paper](https://ieeexplore.ieee.org/abstract/document/10401021)]
 
  * **RGB-LiDAR sensor fusion for dust de-filtering in autonomous excavation applications**                  
 Automation in Construction 2024                  
