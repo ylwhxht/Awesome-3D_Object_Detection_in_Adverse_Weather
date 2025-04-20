@@ -546,6 +546,10 @@ ECCV 2024
 AAAI 2025                  
 [[paper](https://arxiv.org/pdf/2408.03677)] [[code](https://github.com/ylwhxht/L4DR)]  
 
+* **Availability-aware Sensor Fusion via Unified Canonical Space for 4D Radar, LiDAR, and Camera**
+Arxiv 2025
+[[paper](https://arxiv.org/abs/2503.07029)]  
+
 
 ---
 ## <a id="icp"> with Cooperative Perception <a href="#table-of-contents">🔝</a> 
@@ -562,4 +566,5 @@ TITS 2024
 
  * **V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion**                  
 CVPR 2025                  
-[[paper](https://arxiv.org/abs/2411.08402)] [[code](https://github.com/ylwhxht/V2X-R)]      
+[[paper](https://arxiv.org/abs/2411.08402)] [[code](https://github.com/ylwhxht/V2X-R)]
+
