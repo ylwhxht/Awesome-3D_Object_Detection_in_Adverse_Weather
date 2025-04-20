@@ -16,6 +16,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 
 ## :collision: Update Log 
 * [2025.3.8] We release the first version of the paper list for 3D Object Detection in Adverse Weather.
+* [2025.4.20] Updated.
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
@@ -454,8 +455,9 @@ Simulation Modelling Practice and Theory 2025
 [[paper](https://www.sciencedirect.com/science/article/abs/pii/S1569190X25000243)]
 
 
-
-
+**Equirectangular Point Reconstruction for Domain Adaptive Multimodal 3D Object Detection in Adverse Weather Conditions**
+AAAI2025
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/33035)][[code](https://github.com/jhyoon964/EquiDetect)]
 
 ----
 ## <a id="radar"> 4D Radar-based/with Camera Detector <a href="#table-of-contents">🔝</a> 
