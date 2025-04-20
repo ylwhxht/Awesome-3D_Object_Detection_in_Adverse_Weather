@@ -76,7 +76,11 @@ TITS 2024
 ### *2025*
 
 
-* **LiDAR Denoising Methods in Adverse Environments: A Review**                  
+**4D mmWave Radar in Adverse Environments for Autonomous Driving: A Survey**
+Arxiv 2025                  
+[[paper](https://arxiv.org/abs/2503.24091)]     
+
+**LiDAR Denoising Methods in Adverse Environments: A Review**                  
 Sensors 2025                  
 [[paper](https://ieeexplore.ieee.org/abstract/document/10839256)]     
 
