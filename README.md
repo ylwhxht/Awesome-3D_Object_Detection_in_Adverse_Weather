@@ -359,7 +359,7 @@ Authorea Preprints 2024
 ### *2025*
 
 
- * **Semantic Segmentation Based Rain and Fog Filtering Only by LiDAR Point Clouds**                  
+ * **AdverseNet: A LiDAR Point Cloud Denoising Network for Autonomous Driving in Rainy, Snowy, and Foggy Weather**                  
 Sensors. 2025                  
  [[paper](https://ieeexplore.ieee.org/abstract/document/10832503)]
 
