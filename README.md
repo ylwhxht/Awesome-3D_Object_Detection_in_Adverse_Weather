@@ -60,10 +60,6 @@ IV 2023
 
 ### *2024*
 
-* **Object Detection in Autonomous Vehicles under Adverse Weather: A Review of Traditional and Deep Learning Approaches**                  
-Algorithms 2024                  
-[[paper](https://ieeexplore.ieee.org/abstract/document/10839256)]  
-
 * **Perception Methods for Adverse Weather Based on Vehicle Infrastructure Cooperation System: A Review**                  
 Sensors 2024                  
 [[paper](https://www.mdpi.com/1999-4893/17/3/103)]     
@@ -76,11 +72,11 @@ TITS 2024
 ### *2025*
 
 
-**4D mmWave Radar in Adverse Environments for Autonomous Driving: A Survey**
+* **4D mmWave Radar in Adverse Environments for Autonomous Driving: A Survey**                  
 Arxiv 2025                  
 [[paper](https://arxiv.org/abs/2503.24091)]     
 
-**LiDAR Denoising Methods in Adverse Environments: A Review**                  
+* **LiDAR Denoising Methods in Adverse Environments: A Review**                  
 Sensors 2025                  
 [[paper](https://ieeexplore.ieee.org/abstract/document/10839256)]     
 
