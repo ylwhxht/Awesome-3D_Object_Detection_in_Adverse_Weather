@@ -297,6 +297,8 @@ RAL. 2022
 ICCRI 2022                  
  [[paper](https://ieeexplore.ieee.org/abstract/document/10223164)]
 
+ * **Towards Robust 3D Object Detection In Rainy Conditions** ITSC 2022                  
+[[paper](https://www.mdpi.com/2072-4292/16/12/2247/pdf)] [[code](https://github.com/julycrow/3D_Object_Detection_Winter)]
 
 
 ### *2023*
@@ -344,6 +346,9 @@ Sensors 2024
 Sensors 2024                  
  [[paper](https://ieeexplore.ieee.org/abstract/document/10423020)]
 
+ * **Label-Efficient Semantic Segmentation of LiDAR Point Clouds in Adverse Weather Conditions**                  
+Sensors 2024                  
+ [[paper](https://ieeexplore.ieee.org/document/10517394)]
 
  * **AdWeatherNet: Adverse Weather Denoising with Point Cloud Spatiotemporal Attention**                  
 VCIP 2024                  
@@ -387,8 +392,7 @@ CVPR 2021
 ICRA 2022                  
 [[paper](https://ieeexplore.ieee.org/abstract/document/9812039)]  
 
- * **Towards Robust 3D Object Detection In Rainy Conditions** ITSC 2022                  
-[[paper](https://www.mdpi.com/2072-4292/16/12/2247/pdf)] [[code](https://github.com/julycrow/3D_Object_Detection_Winter)]
+
 
 * **LossDistillNet: 3D Object Detection in Point Cloud Under Harsh Weather Conditions**                  
  Access 2022                  
