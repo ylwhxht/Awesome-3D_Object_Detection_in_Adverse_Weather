@@ -17,6 +17,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 ## :collision: Update Log 
 * [2025.3.8] We release the first version of the paper list for 3D Object Detection in Adverse Weather.
 * [2025.4.20] Updated.
+* [2026.3.26] Updated with recent 2025-2026 papers.
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
@@ -80,6 +81,10 @@ Arxiv 2025
 Sensors 2025                  
 [[paper](https://ieeexplore.ieee.org/abstract/document/10839256)]     
 
+* **Overview of object detection methods based on LiDAR point cloud under adverse weather conditions**                  
+Chinese Journal of Engineering 2025                  
+[[paper](https://cje.ustb.edu.cn/en/article/doi/10.13374/j.issn2095-9389.2024.05.27.002)]     
+
 
 ----
 ## <a id="dataset"> Datasets <a href="#table-of-contents">🔝</a> 
@@ -119,6 +124,16 @@ IV 2024
 * **Is Your LiDAR Placement Optimized for 3D Scene Understanding?**                  
 NIPS 2024                  
 [[paper](https://proceedings.neurips.cc/paper_files/paper/2024/file/3dbb8b6b5576b85afb3037e9630812dc-Paper-Conference.pdf)] [[code&data](https://github.com/ywyeli/Place3D)]  
+
+### *2025*
+
+* **[CADC+]: CADC+: A Paired Domain Adaptation Dataset for Winter Conditions**                  
+Arxiv 2025                  
+[[paper](https://arxiv.org/abs/2506.16531)] [[data](https://uwaterloo.ca/waterloo-intelligent-systems-engineering-lab/cadc-plus)]  
+
+* **[SCOPE]: SCOPE: A Synthetic Multi-Modal Dataset for Collective Perception Including Physical-Correct Weather Conditions**                  
+IV 2025                  
+[[paper](https://ieeexplore.ieee.org/document/10920280/)] [[code&data](https://ekut-es.github.io/scope/)]  
 
 
 ----
@@ -234,6 +249,14 @@ AAAI 2024
 * **[Snow Simulation]: Adverse Weather Conditions Augmentation of LiDAR Scenes with Latent Diffusion Models**                  
 Arxiv. 2025                  
 [[paper](https://arxiv.org/pdf/2501.01761)]
+
+* **[Various Simulation]: WeatherGen: A Unified Diverse Weather Generator for LiDAR Point Clouds via Spider Mamba Diffusion**                  
+CVPR 2025                  
+[[paper](https://arxiv.org/abs/2504.13561)] [[code](https://github.com/wuyang98/weathergen)]
+
+* **[Fog Simulation]: Simulation of LiDAR Under Fog with Generative Adversarial Networks for Robust 3D Object Detection**                  
+International Journal of Automotive Technology 2025                  
+[[paper](https://link.springer.com/article/10.1007/s12239-025-00319-4)]
 
 
 ----
@@ -364,7 +387,19 @@ Authorea Preprints 2024
 Sensors. 2025                  
  [[paper](https://ieeexplore.ieee.org/abstract/document/10832503)]
 
+* **SCOPE: Spatial Context-Aware Pointcloud Encoder for Denoising Under the Adverse Weather Conditions**                  
+Applied Sciences 2025                  
+ [[paper](https://www.mdpi.com/2076-3417/15/18/10113)]
 
+* **TADNet: A Time and Attention-Based Point Cloud Denoising Network for Autonomous Driving in Adverse Weather**                  
+ISPRS Archives 2025                  
+ [[paper](https://isprs-archives.copernicus.org/articles/XLVIII-G-2025/1733/2025/)]
+
+### *2026*
+
+* **IDSOR: Intensity- and Distance-Aware Statistical Outlier Removal for Weather-Robust LiDAR Point Clouds**                  
+Arxiv 2026                  
+ [[paper](https://arxiv.org/abs/2602.05876)]
 
 
 ----
@@ -459,9 +494,35 @@ Simulation Modelling Practice and Theory 2025
 [[paper](https://www.sciencedirect.com/science/article/abs/pii/S1569190X25000243)]
 
 
-**Equirectangular Point Reconstruction for Domain Adaptive Multimodal 3D Object Detection in Adverse Weather Conditions**
-AAAI2025
-[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/33035)][[code](https://github.com/jhyoon964/EquiDetect)]
+* **Equirectangular Point Reconstruction for Domain Adaptive Multimodal 3D Object Detection in Adverse Weather Conditions**                  
+AAAI 2025                  
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/33035)] [[code](https://github.com/jhyoon964/EquiDetect)]
+
+* **WCGNet: A Weather Codebook and Gating Fusion for Robust 3D Detection Under Adverse Conditions**                  
+Electronics 2025                  
+[[paper](https://www.mdpi.com/2079-9292/14/22/4379)]
+
+* **AWAD-Fusion: Dynamic Multi-sensor Fusion Framework for Robust 3D Object Detection in Adverse Weather**                  
+ICIC 2025                  
+[[paper](https://link.springer.com/chapter/10.1007/978-981-96-9794-6_12)]
+
+* **DiffFusion: Diffusion-Based Restoration for Multi-Modal 3D Object Detection in Adverse Weather**                  
+Arxiv 2025                  
+[[paper](https://arxiv.org/abs/2512.13107)]
+
+* **MOS: Model Synergy for Test-Time Adaptation on LiDAR-Based 3D Object Detection**                  
+ICLR 2025                  
+[[paper](https://arxiv.org/abs/2406.14878)] [[code](https://github.com/zhuoxiao-chen/MOS)]
+
+### *2026*
+
+* **SeBFusion: Semantic-Enhanced Bidirectional Multimodal Fusion for 3D Object Detection Under Adverse Weather**                  
+Applied Sciences 2026                  
+[[paper](https://www.mdpi.com/2076-3417/16/6/2943)]
+
+* **Robust multimodal 3D object detection: overcoming weather challenges in autonomous driving perception systems**                  
+Signal, Image and Video Processing 2026                  
+[[paper](https://link.springer.com/article/10.1007/s11760-025-05081-9)]
 
 ----
 ## <a id="radar"> 4D Radar-based/with Camera Detector <a href="#table-of-contents">🔝</a> 
@@ -476,6 +537,17 @@ NIPS 2022
 Sensors 2024                  
 [[paper](https://ieeexplore.ieee.org/document/10491101)] 
 
+### *2025*
+
+* **Wavelet-based Multi-View Fusion of 4D Radar Tensor and Camera for Robust 3D Object Detection**                  
+Arxiv 2025                  
+[[paper](https://arxiv.org/abs/2512.22972)]
+
+### *2026*
+
+* **Robust BEV Perception via Dual 4D Radar–Camera Fusion Under Adverse Conditions with Fog-Aware Enhancement**                  
+Electronics 2026                  
+[[paper](https://www.mdpi.com/2079-9292/15/6/1284)]
 
 
 ----
@@ -546,9 +618,23 @@ ECCV 2024
 AAAI 2025                  
 [[paper](https://arxiv.org/pdf/2408.03677)] [[code](https://github.com/ylwhxht/L4DR)]  
 
-* **Availability-aware Sensor Fusion via Unified Canonical Space for 4D Radar, LiDAR, and Camera**
-Arxiv 2025
+* **Availability-aware Sensor Fusion via Unified Canonical Space for 4D Radar, LiDAR, and Camera**                  
+Arxiv 2025                  
 [[paper](https://arxiv.org/abs/2503.07029)]  
+
+* **DLRFusion: Doppler-Aware LiDAR-RADAR Fusion for Weather-Robust 3D Detection**                  
+ICCV 2025                  
+[[paper](https://openaccess.thecvf.com/content/ICCV2025/papers/Chae_Doppler-Aware_LiDAR-RADAR_Fusion_for_Weather-Robust_3D_Detection_ICCV_2025_paper.pdf)] [[code](https://github.com/yujeong-star/DLRFusion)]
+
+### *2026*
+
+* **AW-MoE: All-Weather Mixture of Experts for Robust Multi-Modal 3D Object Detection**                  
+Arxiv 2026                  
+[[paper](https://arxiv.org/abs/2603.16261)]
+
+* **REL: Towards Accurate 3D Object Detection in Adverse Weather by Leveraging 4D Radar for LiDAR Geometry Enhancement**                  
+AAAI 2026                  
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/37916)]
 
 
 ---
@@ -567,4 +653,10 @@ TITS 2024
  * **V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion**                  
 CVPR 2025                  
 [[paper](https://arxiv.org/abs/2411.08402)] [[code](https://github.com/ylwhxht/V2X-R)]
+
+### *2026*
+
+* **DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via Joint LiDAR-Based 3D Object Detection and Denoising**                  
+IV 2026                  
+[[paper](https://arxiv.org/abs/2507.06976)]
 
