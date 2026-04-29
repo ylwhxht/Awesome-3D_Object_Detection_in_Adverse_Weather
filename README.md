@@ -339,6 +339,10 @@ ICCRI 2022
 ICTC. 2023                  
  [[paper](https://ieeexplore.ieee.org/abstract/document/10392388)]
 
+* **Multi-Echo Denoising in Adverse Weather**<br>
+Arxiv 2023<br>
+[[paper](https://arxiv.org/abs/2305.14008)] [[code](https://github.com/alvariseppanen/multi_echo_denoising)]
+
 
  * **Denoising Point Clouds with Intensity and Spatial Features in Rainy Weather**                  
 ICIP 2023                 
@@ -438,6 +442,10 @@ Arxiv 2020
 * **SPG: Unsupervised Domain Adaptation for 3D Object Detection via Semantic Point Generation**                  
 CVPR 2021                  
 [[paper](https://openaccess.thecvf.com/content/ICCV2021/papers/Xu_SPG_Unsupervised_Domain_Adaptation_for_3D_Object_Detection_via_Semantic_ICCV_2021_paper.pdf)]  
+
+* **3D Object Detection with SLS-Fusion Network in Foggy Weather Conditions**<br>
+Sensors 2021<br>
+[[paper](https://www.mdpi.com/1424-8220/21/20/6711)]
 ### *2022*
 
 * **Rethinking LiDAR Object Detection in adverse weather conditions**                  
@@ -659,6 +667,10 @@ ECCV 2024
 AAAI 2025                  
 [[paper](https://arxiv.org/pdf/2408.03677)] [[code](https://github.com/ylwhxht/L4DR)]  
 
+* **MoRAL: Motion-aware Multi-Frame 4D Radar and LiDAR Fusion for Robust 3D Object Detection**<br>
+Arxiv 2025<br>
+[[paper](https://arxiv.org/abs/2505.09422)]
+
 * **Availability-aware Sensor Fusion via Unified Canonical Space for 4D Radar, LiDAR, and Camera**                  
 Arxiv 2025                  
 [[paper](https://arxiv.org/abs/2503.07029)]  
@@ -672,6 +684,10 @@ ICCV 2025
 * **AW-MoE: All-Weather Mixture of Experts for Robust Multi-Modal 3D Object Detection**                  
 Arxiv 2026                  
 [[paper](https://arxiv.org/abs/2603.16261)]
+
+* **Beyond pillars: Advancing 3D object detection with salient voxel enhancement of LiDAR-4D radar fusion**<br>
+Pattern Recognition 2026<br>
+[[paper](https://www.sciencedirect.com/science/article/pii/S0031320325015043)] [[code](https://github.com/icdm-adteam/SVEFusion)]
 
 * **REL: Towards Accurate 3D Object Detection in Adverse Weather by Leveraging 4D Radar for LiDAR Geometry Enhancement**                  
 AAAI 2026                  
