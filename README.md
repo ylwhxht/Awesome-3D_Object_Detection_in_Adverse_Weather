@@ -18,7 +18,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 * [2025.3.8] We release the first version of the paper list for 3D Object Detection in Adverse Weather.
 * [2025.4.20] Updated.
 * [2026.3.26] Updated with recent 2025-2026 papers.
-* [2026.4.29] Broadened the literature sweep and added several recent 2025-2026 papers/preprints on datasets, LiDAR denoising, radar-based detection, fusion, and cooperative perception.
+* [2026.4.29] Updated papers.
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
