@@ -19,6 +19,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 * [2025.4.20] Updated.
 * [2026.3.26] Updated with recent 2025-2026 papers.
 * [2026.4.29] Updated papers.
+* [2026.6.4] Added recent 2026 papers/preprints on adverse-weather datasets, LiDAR simulation/restoration, multimodal detection, radar-camera detection, and LiDAR-radar fusion.
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
@@ -86,6 +87,16 @@ Sensors 2025
 Chinese Journal of Engineering 2025                  
 [[paper](https://cje.ustb.edu.cn/en/article/doi/10.13374/j.issn2095-9389.2024.05.27.002)]     
 
+### *2026*
+
+* **From Clear to Adverse: A Survey of All-Weather LiDAR Semantic Segmentation for Autonomous Driving**                  
+AI Transportation 2026                  
+[[paper](https://www.sciencedirect.com/science/article/abs/pii/S3050860626000165)]     
+
+* **Research Progress of Four-Dimensional Radar for Target Detection**                  
+Computers and Electrical Engineering 2026                  
+[[paper](https://www.sciencedirect.com/science/article/pii/S0045790626001503)]     
+
 
 ----
 ## <a id="dataset"> Datasets <a href="#table-of-contents">🔝</a> 
@@ -144,6 +155,20 @@ CVPR 2025<br>
 ICCV 2025<br>
 [[paper](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_V2XScenes_A_Multiple_Challenging_Traffic_Conditions_Dataset_for_Large-Range_Vehicle-Infrastructure_ICCV_2025_paper.html)]
 
+* **[CoInfra]: CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather**                  
+Arxiv 2025                  
+[[paper](https://arxiv.org/abs/2507.02245)] [[code&data](https://github.com/NingMingHao/CoInfra)] [[data](https://huggingface.co/datasets/MinghaoNing/CoInfra)]
+
+### *2026*
+
+* **[IQA3D]: Weather-Robust LiDAR Perception: Point Cloud Restoration from Adverse Weather**                  
+AAAI 2026                  
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/37873)]
+
+* **[LiSmoke]: Physically-Based LiDAR Smoke Simulation for Robust 3D Object Detection**                  
+AAAI 2026                  
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/38348)]
+
 
 ----
 ## <a id="eva"> Weather Quantitative Analysis<a href="#table-of-contents">🔝</a> 
@@ -190,6 +215,12 @@ CVPR 2023
 * **Effect of Fog Particle Size Distribution on 3D Object Detection Under Adverse Weather Conditions**                  
 Arxiv 2024                  
 [[paper](https://arxiv.org/abs/2408.01085)]
+
+### *2026*
+
+* **[MuFoRa]: MuFoRa: A Multimodal Dataset and the Impact of Adverse Weather on Camera and LiDAR**                  
+SN Computer Science 2026                  
+[[paper](https://doi.org/10.1007/s42979-026-04976-9)] [[data](https://doi.org/10.5281/zenodo.14175611)]
 
 
 
@@ -266,6 +297,20 @@ CVPR 2025
 * **[Fog Simulation]: Simulation of LiDAR Under Fog with Generative Adversarial Networks for Robust 3D Object Detection**                  
 International Journal of Automotive Technology 2025                  
 [[paper](https://link.springer.com/article/10.1007/s12239-025-00319-4)]
+
+### *2026*
+
+* **[Smoke Simulation]: Physically-Based LiDAR Smoke Simulation for Robust 3D Object Detection**                  
+AAAI 2026                  
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/38348)]
+
+* **[Various Simulation]: Simulating Realistic LiDAR Data Under Adverse Weather for Autonomous Vehicles: A Physics-Informed Learning Approach**                  
+Arxiv 2026                  
+[[paper](https://arxiv.org/abs/2604.01254)]
+
+* **[Various Simulation]: OmniLiDAR: A Unified Diffusion Framework for Multi-Domain 3D LiDAR Generation**                  
+Arxiv 2026                  
+[[paper](https://arxiv.org/abs/2605.13815)]
 
 
 ----
@@ -422,6 +467,14 @@ IEEE Access 2026<br>
 Advanced Engineering Informatics 2026<br>
  [[paper](https://doi.org/10.1016/j.aei.2026.104449)]
 
+* **Weather-Robust LiDAR Perception: Point Cloud Restoration from Adverse Weather**                  
+AAAI 2026                  
+ [[paper](https://ojs.aaai.org/index.php/AAAI/article/view/37873)]
+
+* **Adaptive Cross-Modal Denoising: Enhancing LiDAR-Camera Fusion Perception in Adverse Circumstances**                  
+Sensors 2026                  
+ [[paper](https://www.mdpi.com/1424-8220/26/2/408)]
+
 
 ----
 
@@ -553,6 +606,18 @@ Applied Sciences 2026
 Signal, Image and Video Processing 2026                  
 [[paper](https://link.springer.com/article/10.1007/s11760-025-05081-9)]
 
+* **Unified Auxiliary Restoration Network for Robust Multimodal 3D Object Detection in Adverse Conditions**                  
+Neural Networks 2026                  
+[[paper](https://www.sciencedirect.com/science/article/pii/S0893608025008731)] [[code](https://github.com/jhyoon964/auxphere)]
+
+* **RobusTor3D: Robust Multimodal 3D Object Detector for Autonomous Driving by Vision-Language Knowledge Blending**                  
+AAAI 2026                  
+[[paper](https://ojs.aaai.org/index.php/AAAI/article/view/38163)]
+
+* **Focal Density-Aware Fusion: A Robust LiDAR-Camera 3D Object Detection Framework for Intelligent Environmental Sanitation in Adverse Weather Conditions**                  
+Digital Signal Processing 2026                  
+[[paper](https://www.sciencedirect.com/science/article/pii/S1051200426003593)]
+
 ----
 ## <a id="radar"> 4D Radar-based/with Camera Detector <a href="#table-of-contents">🔝</a> 
 ### *2022*
@@ -593,6 +658,14 @@ Arxiv 2026<br>
 * **Bridging the performance gap of 3D object detection in adverse weather conditions via camera-radar distillation (ChinaMM)**<br>
 Displays 2026<br>
 [[paper](https://www.sciencedirect.com/science/article/pii/S0141938225003579)]
+
+* **RadarXFormer: Robust Object Detection via Cross-Dimension Fusion of 4D Radar Spectra and Images for Autonomous Driving**                  
+Arxiv 2026                  
+[[paper](https://arxiv.org/abs/2603.14822)]
+
+* **MLF-4DRCNet: Multi-Level Fusion with 4D Radar and Camera for 3D Object Detection in Autonomous Driving**                  
+Information Fusion 2026                  
+[[paper](https://arxiv.org/abs/2509.18613)]
 
 
 ----
@@ -642,6 +715,12 @@ ECCV 2024
 TITS 2024                  
 [[paper](https://ieeexplore.ieee.org/abstract/document/10591357)] 
 
+### *2026*
+
+* **MVDFusion: Multimodal Vehicle Detection in Foggy Weather Using LiDAR and Radar Fusion**                  
+Sensors 2026                  
+[[paper](https://www.mdpi.com/1424-8220/26/9/2663)]
+
 
 ----
 ## <a id="l4r"> LiDAR+4D Radar Fusion Detector<a href="#table-of-contents">🔝</a> 
@@ -683,7 +762,7 @@ ICCV 2025
 
 * **AW-MoE: All-Weather Mixture of Experts for Robust Multi-Modal 3D Object Detection**                  
 Arxiv 2026                  
-[[paper](https://arxiv.org/abs/2603.16261)]
+[[paper](https://arxiv.org/abs/2603.16261)] [[code](https://github.com/windlinsherlock/AW-MoE)]
 
 * **Beyond pillars: Advancing 3D object detection with salient voxel enhancement of LiDAR-4D radar fusion**<br>
 Pattern Recognition 2026<br>
@@ -692,6 +771,14 @@ Pattern Recognition 2026<br>
 * **REL: Towards Accurate 3D Object Detection in Adverse Weather by Leveraging 4D Radar for LiDAR Geometry Enhancement**                  
 AAAI 2026                  
 [[paper](https://ojs.aaai.org/index.php/AAAI/article/view/37916)]
+
+* **Weather-Conditioned Branch Routing for Robust LiDAR-Radar 3D Object Detection**                  
+Arxiv 2026                  
+[[paper](https://arxiv.org/abs/2604.05405)]
+
+* **FusionBev: LiDAR and 4D Radar Fusion for 3D Object Detection**                  
+Information Fusion 2026                  
+[[paper](https://www.sciencedirect.com/science/article/pii/S1566253526001193)]
 
 
 ---
@@ -710,6 +797,10 @@ TITS 2024
  * **V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion**                  
 CVPR 2025                  
 [[paper](https://arxiv.org/abs/2411.08402)] [[code](https://github.com/ylwhxht/V2X-R)]
+
+* **CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather**                  
+Arxiv 2025                  
+[[paper](https://arxiv.org/abs/2507.02245)] [[code&data](https://github.com/NingMingHao/CoInfra)] [[data](https://huggingface.co/datasets/MinghaoNing/CoInfra)]
 
 ### *2026*
 
