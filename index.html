@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Object Detection in Adverse Weather</title>
+  <meta name="description" content="An academic research map for 3D object detection in adverse weather, covering datasets, simulation, denoising, radar, fusion, and cooperative perception.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #081112;
+      --bg-soft: #0e1a1d;
+      --ink: #eef7f6;
+      --muted: #9fb2b3;
+      --line: rgba(180, 220, 218, 0.2);
+      --accent: #63e6d4;
+      --accent-2: #f4c95d;
+      --accent-3: #8aa4ff;
+      --danger: #ff7a7a;
+      --panel: rgba(9, 24, 27, 0.74);
+      --panel-strong: rgba(12, 31, 36, 0.92);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(8, 17, 18, 0.72), #081112 760px),
+        radial-gradient(circle at 12% 18%, rgba(99, 230, 212, 0.22), transparent 26rem),
+        radial-gradient(circle at 86% 4%, rgba(244, 201, 93, 0.14), transparent 24rem),
+        var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      content: "";
+      background-image:
+        linear-gradient(rgba(170, 230, 226, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(170, 230, 226, 0.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(180, 220, 218, 0.16);
+      background: rgba(8, 17, 18, 0.76);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(1180px, calc(100% - 40px));
+      height: 68px;
+      margin: 0 auto;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(99, 230, 212, 0.42);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(99, 230, 212, 0.18), rgba(138, 164, 255, 0.12));
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+    }
+
+    .brand span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a {
+      min-height: 36px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      padding: 80px 0 48px;
+      display: grid;
+      align-items: end;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0 calc((100vw - min(1180px, calc(100vw - 40px))) / -2) 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.48;
+      filter: saturate(0.82) contrast(1.12);
+      transform: scale(1.03);
+    }
+
+    .hero-media::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(8, 17, 18, 0.96) 0%, rgba(8, 17, 18, 0.66) 46%, rgba(8, 17, 18, 0.88) 100%),
+        linear-gradient(180deg, rgba(8, 17, 18, 0.18) 0%, rgba(8, 17, 18, 0.86) 92%);
+    }
+
+    #signal-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      opacity: 0.62;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.72fr);
+      align-items: end;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid rgba(99, 230, 212, 0.34);
+      border-radius: 8px;
+      background: rgba(5, 18, 20, 0.58);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 720;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(99, 230, 212, 0.7);
+      animation: pulse 2.2s ease-out infinite;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 24px 0 0;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: #c9d8d8;
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 16px;
+      border: 1px solid rgba(180, 220, 218, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 760;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 230, 212, 0.55);
+      background: rgba(99, 230, 212, 0.12);
+    }
+
+    .button.primary {
+      border-color: rgba(99, 230, 212, 0.58);
+      background: linear-gradient(135deg, rgba(99, 230, 212, 0.28), rgba(138, 164, 255, 0.18));
+      color: #f9ffff;
+    }
+
+    .hero-panel {
+      border: 1px solid rgba(180, 220, 218, 0.18);
+      border-radius: var(--radius);
+      background: rgba(8, 17, 18, 0.66);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .panel-image {
+      position: relative;
+      aspect-ratio: 1.78;
+      background: #101b1f;
+    }
+
+    .panel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .panel-image::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .panel-body {
+      padding: 18px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      min-height: 82px;
+      padding: 12px;
+      border: 1px solid rgba(180, 220, 218, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--accent);
+      font-size: 23px;
+      line-height: 1.05;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    section {
+      padding: 86px 0;
+      border-top: 1px solid rgba(180, 220, 218, 0.1);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(260px, 0.25fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--accent-2);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    h2 {
+      margin: 10px 0 0;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .taxonomy {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .topic {
+      position: relative;
+      min-height: 228px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+      transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    .topic::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      content: "";
+      background: linear-gradient(90deg, var(--accent), var(--accent-3));
+      transform: scaleX(0.45);
+      transform-origin: left;
+      transition: transform 200ms ease;
+    }
+
+    .topic:hover {
+      transform: translateY(-5px);
+      border-color: rgba(99, 230, 212, 0.48);
+      background: var(--panel-strong);
+    }
+
+    .topic:hover::before {
+      transform: scaleX(1);
+    }
+
+    .topic-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .topic-code {
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .topic-count {
+      padding: 5px 8px;
+      border: 1px solid rgba(180, 220, 218, 0.16);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .topic h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.18;
+    }
+
+    .topic p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    .lens {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .figure-frame {
+      border: 1px solid rgba(180, 220, 218, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .figure-frame img {
+      width: 100%;
+      height: 100%;
+      min-height: 330px;
+      object-fit: cover;
+    }
+
+    .lens-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 17px;
+      border: 1px solid rgba(180, 220, 218, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .signal-row strong {
+      color: var(--accent-2);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .signal-row p {
+      margin: 0;
+      color: #c1d1d1;
+      line-height: 1.56;
+      font-size: 14px;
+    }
+
+    .papers {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .paper {
+      display: flex;
+      min-height: 250px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+      border: 1px solid rgba(180, 220, 218, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
+
+    .paper:hover {
+      transform: translateY(-5px);
+      border-color: rgba(244, 201, 93, 0.46);
+    }
+
+    .paper-tag {
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .paper h3 {
+      margin: 26px 0 0;
+      font-size: 20px;
+      line-height: 1.22;
+    }
+
+    .paper p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.54;
+      font-size: 14px;
+    }
+
+    .paper .venue {
+      margin-top: 24px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 730;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 18px;
+      width: 1px;
+      content: "";
+      background: linear-gradient(to bottom, transparent, rgba(99, 230, 212, 0.42), transparent);
+    }
+
+    .time-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .time-dot {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(99, 230, 212, 0.46);
+      border-radius: 50%;
+      background: #0b1a1e;
+      box-shadow: 0 0 24px rgba(99, 230, 212, 0.18);
+    }
+
+    .time-body {
+      padding: 17px 18px;
+      border: 1px solid rgba(180, 220, 218, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .time-body strong {
+      display: block;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .time-body p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .cta {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 32px;
+      border: 1px solid rgba(99, 230, 212, 0.24);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(99, 230, 212, 0.12), rgba(244, 201, 93, 0.08)),
+        rgba(255, 255, 255, 0.045);
+      overflow: hidden;
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 48px);
+    }
+
+    .cta p {
+      margin: 12px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    footer {
+      padding: 42px 0 64px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 680ms ease, transform 680ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(99, 230, 212, 0.62);
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(99, 230, 212, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(99, 230, 212, 0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .topbar-inner {
+        height: auto;
+        min-height: 64px;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 64px;
+      }
+
+      .hero-grid,
+      .section-head,
+      .lens,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .taxonomy,
+      .papers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page,
+      .topbar-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero {
+        padding: 52px 0 36px;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .taxonomy,
+      .papers,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="3D Object Detection in Adverse Weather">
+        <span class="brand-mark">3D</span>
+        <span>Adverse Weather 3D Detection</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#map">Map</a>
+        <a href="#signals">Signals</a>
+        <a href="#papers">Highlights</a>
+        <a href="#updates">Updates</a>
+        <a href="README.md">README</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="images/detection.gif" alt="">
+        <canvas id="signal-canvas"></canvas>
+      </div>
+
+      <div class="page hero-grid">
+        <div class="hero-copy-block reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> Curated Research Atlas</div>
+          <h1>3D Object Detection in Adverse Weather</h1>
+          <p class="hero-copy">
+            A structured academic reading map for perception under fog, rain, snow, spray, smoke, sensor degradation,
+            and multi-agent traffic scenes. The repository organizes datasets, simulators, denoisers, detectors,
+            radar fusion methods, and cooperative perception papers into a navigable research landscape.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="README.md">Open Paper List</a>
+            <a class="button" href="#map">Explore Taxonomy</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Repository snapshot">
+          <div class="panel-image">
+            <img src="images/kradar_examples.png" alt="K-Radar examples across driving scenes and weather conditions">
+          </div>
+          <div class="panel-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <strong>10</strong>
+                <span>Research tracks</span>
+              </div>
+              <div class="metric">
+                <strong>2020-26</strong>
+                <span>Recent focus window</span>
+              </div>
+              <div class="metric">
+                <strong>Multi</strong>
+                <span>LiDAR, camera, radar, V2X</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="map">
+      <div class="page">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Research Taxonomy</div>
+            <h2>From weather physics to deployable all-weather perception.</h2>
+          </div>
+          <p class="section-lead">
+            The list follows the research pipeline: measure the weather impact, synthesize rare conditions,
+            restore corrupted sensors, and fuse complementary modalities for robust 3D detection.
+          </p>
+        </div>
+
+        <div class="taxonomy">
+          <a class="topic reveal" href="README.md#dataset">
+            <div class="topic-top"><span class="topic-code">01 / DATA</span><span class="topic-count">Datasets</span></div>
+            <h3>Adverse-weather benchmarks</h3>
+            <p>Real and synthetic corpora spanning DENSE, CADC, K-Radar, V2X-R, CoInfra, IQA3D, and LiSmoke.</p>
+          </a>
+          <a class="topic reveal" href="README.md#eva">
+            <div class="topic-top"><span class="topic-code">02 / EVAL</span><span class="topic-count">Analysis</span></div>
+            <h3>Quantifying sensor failure</h3>
+            <p>Fog particle size, precipitation intensity, corruption benchmarks, and sensor degradation studies.</p>
+          </a>
+          <a class="topic reveal" href="README.md#sim">
+            <div class="topic-top"><span class="topic-code">03 / SIM</span><span class="topic-count">Generation</span></div>
+            <h3>Weather simulation and augmentation</h3>
+            <p>Physics-based fog, rain, snow, smoke, diffusion, and GAN pipelines for robust training data.</p>
+          </a>
+          <a class="topic reveal" href="README.md#lidarde">
+            <div class="topic-top"><span class="topic-code">04 / CLEAN</span><span class="topic-count">Restoration</span></div>
+            <h3>LiDAR denoising and restoration</h3>
+            <p>Classical filters, range-image networks, graph denoisers, point cloud restoration, and cross-modal denoising.</p>
+          </a>
+          <a class="topic reveal" href="README.md#lidar">
+            <div class="topic-top"><span class="topic-code">05 / DET</span><span class="topic-count">Detection</span></div>
+            <h3>LiDAR and camera detectors</h3>
+            <p>Weather-aware distillation, restoration-assisted detection, multimodal fusion, and VLM-enhanced robustness.</p>
+          </a>
+          <a class="topic reveal" href="README.md#radar">
+            <div class="topic-top"><span class="topic-code">06 / RADAR</span><span class="topic-count">4D radar</span></div>
+            <h3>Radar-centric perception</h3>
+            <p>Radar-camera and 4D radar spectra methods that retain reliability when camera or LiDAR quality drops.</p>
+          </a>
+          <a class="topic reveal" href="README.md#l3r">
+            <div class="topic-top"><span class="topic-code">07 / FUSE</span><span class="topic-count">LiDAR + radar</span></div>
+            <h3>Complementary geometry fusion</h3>
+            <p>Radar-LiDAR fusion for foggy vehicle detection and robust BEV representations.</p>
+          </a>
+          <a class="topic reveal" href="README.md#l4r">
+            <div class="topic-top"><span class="topic-code">08 / 4D</span><span class="topic-count">LiDAR + 4D radar</span></div>
+            <h3>All-weather multi-modal 3DOD</h3>
+            <p>Weather-conditioned routing, geometry enhancement, MoE, and voxel-level LiDAR-4D radar fusion.</p>
+          </a>
+          <a class="topic reveal" href="README.md#icp">
+            <div class="topic-top"><span class="topic-code">09 / V2X</span><span class="topic-count">Cooperation</span></div>
+            <h3>Cooperative perception</h3>
+            <p>Infrastructure, vehicle-to-vehicle, and collective perception for limited visibility and occluded scenes.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="signals">
+      <div class="page">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Sensor Perspective</div>
+            <h2>Adverse weather is not one problem. It is a sensor-specific distribution shift.</h2>
+          </div>
+          <p class="section-lead">
+            Robust 3D object detection emerges from understanding how each modality fails, then designing fusion
+            policies that adapt as the environment changes.
+          </p>
+        </div>
+
+        <div class="lens">
+          <figure class="figure-frame reveal">
+            <img src="images/detection.gif" alt="Dynamic visualization of 3D object detection in driving scenes">
+          </figure>
+          <div class="lens-list">
+            <div class="signal-row reveal">
+              <strong>LiDAR</strong>
+              <p>High-resolution geometry, vulnerable to backscatter, attenuation, near-range clutter, and sparse long-range returns.</p>
+            </div>
+            <div class="signal-row reveal">
+              <strong>Camera</strong>
+              <p>Dense semantics and texture, degraded by fog, glare, darkness, wet lenses, motion blur, and low contrast.</p>
+            </div>
+            <div class="signal-row reveal">
+              <strong>Radar</strong>
+              <p>Weather-resilient ranging and Doppler cues, challenged by sparsity, noise, elevation uncertainty, and clutter.</p>
+            </div>
+            <div class="signal-row reveal">
+              <strong>V2X</strong>
+              <p>Spatial diversity from infrastructure and nearby agents, constrained by calibration, latency, bandwidth, and trust.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="papers">
+      <div class="page">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Recent Highlights</div>
+            <h2>A compact entry point into the latest additions.</h2>
+          </div>
+          <p class="section-lead">
+            These papers represent the newest update themes: adverse-weather infrastructure data, point restoration,
+            smoke simulation, radar spectra, and weather-conditioned LiDAR-radar fusion.
+          </p>
+        </div>
+
+        <div class="papers">
+          <a class="paper reveal" href="https://arxiv.org/abs/2507.02245">
+            <div>
+              <span class="paper-tag">Dataset / V2I</span>
+              <h3>CoInfra</h3>
+              <p>Large-scale cooperative infrastructure perception under sunny, rainy, heavy snow, and freezing rain conditions.</p>
+            </div>
+            <span class="venue">Arxiv 2025</span>
+          </a>
+          <a class="paper reveal" href="https://ojs.aaai.org/index.php/AAAI/article/view/37873">
+            <div>
+              <span class="paper-tag">Restoration</span>
+              <h3>Weather-Robust LiDAR Perception</h3>
+              <p>LTDNet and IQA3D for restoring degraded LiDAR scans and measuring downstream detection robustness.</p>
+            </div>
+            <span class="venue">AAAI 2026</span>
+          </a>
+          <a class="paper reveal" href="https://ojs.aaai.org/index.php/AAAI/article/view/38348">
+            <div>
+              <span class="paper-tag">Simulation</span>
+              <h3>Physically-Based LiDAR Smoke Simulation</h3>
+              <p>Unity-based smoke physics and LiSmoke for robust detection in safety-critical low-visibility scenes.</p>
+            </div>
+            <span class="venue">AAAI 2026</span>
+          </a>
+          <a class="paper reveal" href="https://arxiv.org/abs/2604.05405">
+            <div>
+              <span class="paper-tag">LiDAR + 4D Radar</span>
+              <h3>Weather-Conditioned Branch Routing</h3>
+              <p>Dynamic branch routing over LiDAR, radar, and fusion streams based on weather-conditioned reliability.</p>
+            </div>
+            <span class="venue">Arxiv 2026</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="page">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Living Bibliography</div>
+            <h2>Maintained as the field moves from clear-weather accuracy to operational robustness.</h2>
+          </div>
+          <p class="section-lead">
+            The repository is designed for quick scanning, literature onboarding, and identifying underexplored
+            junctions between sensing physics and learning systems.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="time-item reveal">
+            <span class="time-dot" aria-hidden="true"></span>
+            <div class="time-body">
+              <strong>2026.6.4</strong>
+              <p>Expanded recent 2026 coverage across datasets, LiDAR simulation and restoration, radar-camera detection, and LiDAR-radar fusion.</p>
+            </div>
+          </div>
+          <div class="time-item reveal">
+            <span class="time-dot" aria-hidden="true"></span>
+            <div class="time-body">
+              <strong>2026.4.29</strong>
+              <p>Updated papers and broadened the reading map around fusion, radar, denoising, and cooperative perception.</p>
+            </div>
+          </div>
+          <div class="time-item reveal">
+            <span class="time-dot" aria-hidden="true"></span>
+            <div class="time-body">
+              <strong>2025.3.8</strong>
+              <p>Released the first version of the paper list for 3D object detection in adverse weather.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="cta reveal">
+          <div>
+            <h2>Use the repository as a launchpad for robust perception research.</h2>
+            <p>
+              Start with surveys for orientation, move into datasets and weather simulation for experimental design,
+              then compare restoration, detector, fusion, and cooperative perception methods by sensing modality.
+            </p>
+          </div>
+          <a class="button primary" href="README.md">Read the Full List</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page">
+      Paper List - 3D Object Detection in Adverse Weather. Visual examples adapted from the repository assets and K-Radar.
+    </div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("signal-canvas");
+    const ctx = canvas.getContext("2d");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let width = 0;
+    let height = 0;
+    let points = [];
+    let raf = null;
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = Math.floor(rect.width);
+      height = Math.floor(rect.height);
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(42, Math.floor((width * height) / 22000));
+      points = Array.from({ length: count }, (_, index) => ({
+        x: (index * 137.5) % width,
+        y: (Math.sin(index * 1.71) * 0.5 + 0.5) * height,
+        vx: 0.18 + (index % 7) * 0.018,
+        phase: index * 0.37
+      }));
+    }
+
+    function drawNetwork(time) {
+      ctx.clearRect(0, 0, width, height);
+      ctx.lineWidth = 1;
+
+      points.forEach((point, index) => {
+        point.x += point.vx;
+        point.y += Math.sin(time * 0.001 + point.phase) * 0.13;
+        if (point.x > width + 20) point.x = -20;
+
+        for (let j = index + 1; j < points.length; j += 1) {
+          const other = points[j];
+          const dx = point.x - other.x;
+          const dy = point.y - other.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 135) {
+            const alpha = (1 - dist / 135) * 0.22;
+            ctx.strokeStyle = `rgba(99, 230, 212, ${alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(point.x, point.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.stroke();
+          }
+        }
+      });
+
+      points.forEach((point, index) => {
+        const pulse = Math.sin(time * 0.002 + index) * 0.5 + 0.5;
+        ctx.fillStyle = `rgba(244, 201, 93, ${0.18 + pulse * 0.35})`;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 1.6 + pulse * 1.6, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      if (!reduceMotion) {
+        raf = requestAnimationFrame(drawNetwork);
+      }
+    }
+
+    function startCanvas() {
+      resizeCanvas();
+      if (raf) cancelAnimationFrame(raf);
+      drawNetwork(0);
+      if (!reduceMotion) raf = requestAnimationFrame(drawNetwork);
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+    window.addEventListener("resize", startCanvas, { passive: true });
+    startCanvas();
+  </script>
+</body>
+</html>
