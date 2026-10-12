@@ -28,6 +28,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 * [2026.3.26] Updated with recent 2025-2026 papers.
 * [2026.4.29] Updated papers.
 * [2026.6.4] Added recent 2026 papers/preprints on adverse-weather datasets, LiDAR simulation/restoration, multimodal detection, radar-camera detection, and LiDAR-radar fusion.
+* [2026.10.12] Added 11 recent works on datasets, LiDAR simulation/denoising, radar and multimodal detection, and cooperative perception; refreshed publication and resource links for DiffFusion, DinoRADE, ASF, and 4-D Radar Meets LiDAR and Camera.
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
@@ -177,6 +178,18 @@ AAAI 2026
 AAAI 2026                  
 [[paper](https://ojs.aaai.org/index.php/AAAI/article/view/38348)]
 
+* **[URScenes]: URScenes: A Multi-scenario Dataset for Unstructured Road Environments**<br>
+CVPR 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026/html/Liu_URScenes_A_Multi-scenario_Dataset_for_Unstructured_Road_Environments_CVPR_2026_paper.html)]
+
+* **[LADS]: ReaLiTy and LADS: A Unified Framework and Dataset Suite for LiDAR Adaptation Across Sensors and Adverse Weather Conditions**<br>
+arXiv 2026 (preprint)<br>
+[[paper](https://arxiv.org/abs/2604.10213)]
+
+* **[OPV2V-R / Adver-City-R]: 4-D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather**<br>
+CVPR Workshops (DriveX) 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Yazgan_4-D_Radar_Meets_LiDAR_and_Camera_Cooperative_Perception_under_Adverse_CVPRW_2026_paper.html)] [[code&data](https://github.com/fzi-forschungszentrum-informatik/SlimComm)]
+
 
 ----
 ## <a id="eva"> Weather Quantitative Analysis<a href="#table-of-contents">🔝</a> 
@@ -319,6 +332,18 @@ Arxiv 2026
 * **[Various Simulation]: OmniLiDAR: A Unified Diffusion Framework for Multi-Domain 3D LiDAR Generation**                  
 Arxiv 2026                  
 [[paper](https://arxiv.org/abs/2605.13815)]
+
+* **[Various Simulation]: Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation**<br>
+CVPR 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026/html/Ni_Structure-to-Intensity_Diffusion_for_Adverse-Weather_LiDAR_Generation_CVPR_2026_paper.html)]
+
+* **[Various Simulation]: ReaLiTy and LADS: A Unified Framework and Dataset Suite for LiDAR Adaptation Across Sensors and Adverse Weather Conditions**<br>
+arXiv 2026 (preprint)<br>
+[[paper](https://arxiv.org/abs/2604.10213)]
+
+* **[Snow Simulation]: From clear to snow: realistic LiDAR simulation via physical-statistical modeling**<br>
+Expert Systems with Applications 2026<br>
+[[paper](https://doi.org/10.1016/j.eswa.2026.132768)]
 
 
 ----
@@ -483,6 +508,14 @@ AAAI 2026
 Sensors 2026                  
  [[paper](https://www.mdpi.com/1424-8220/26/2/408)]
 
+* **Unsupervised Snowy-Weather Point Cloud Denoising via Two-Stage Filter-Network Collaboration**<br>
+IEEE Transactions on Geoscience and Remote Sensing 2026<br>
+[[paper](https://doi.org/10.1109/TGRS.2026.3687212)]
+
+* **Spatially divided outlier removal for LiDAR de-noising in adverse weather conditions**<br>
+Scientific Reports 2026<br>
+[[paper](https://doi.org/10.1038/s41598-026-38674-6)]
+
 
 ----
 
@@ -596,10 +629,6 @@ Electronics 2025
 ICIC 2025                  
 [[paper](https://link.springer.com/chapter/10.1007/978-981-96-9794-6_12)]
 
-* **DiffFusion: Diffusion-Based Restoration for Multi-Modal 3D Object Detection in Adverse Weather**                  
-Arxiv 2025                  
-[[paper](https://arxiv.org/abs/2512.13107)]
-
 * **MOS: Model Synergy for Test-Time Adaptation on LiDAR-Based 3D Object Detection**                  
 ICLR 2025                  
 [[paper](https://arxiv.org/abs/2406.14878)] [[code](https://github.com/zhuoxiao-chen/MOS)]
@@ -625,6 +654,10 @@ AAAI 2026
 * **Focal Density-Aware Fusion: A Robust LiDAR-Camera 3D Object Detection Framework for Intelligent Environmental Sanitation in Adverse Weather Conditions**                  
 Digital Signal Processing 2026                  
 [[paper](https://www.sciencedirect.com/science/article/pii/S1051200426003593)]
+
+* **Diffusion-Based Restoration for Multi-Modal 3D Object Detection in Adverse Weather**<br>
+IEEE Robotics and Automation Letters 2026<br>
+[[paper](https://doi.org/10.1109/LRA.2026.3692085)] [[arXiv](https://arxiv.org/abs/2512.13107)] [[project (code pending)](https://github.com/SCNU-RISLAB/DiffFusion)]
 
 ----
 ## <a id="radar"> 4D Radar-based/with Camera Detector <a href="#table-of-contents">🔝</a> 
@@ -656,8 +689,8 @@ Electronics 2026
 [[paper](https://www.mdpi.com/2079-9292/15/6/1284)]
 
 * **DinoRADE: Full Spectral Radar-Camera Fusion with Vision Foundation Model Features for Multi-class Object Detection in Adverse Weather**<br>
-CVPR Workshops / Arxiv 2026<br>
-[[paper](https://arxiv.org/abs/2604.08074)]
+CVPR Workshops (DriveX) 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Leitgeb_DinoRADE_Full_Spectral_Radar-Camera_Fusion_with_Vision_Foundation_Model_Features_CVPRW_2026_paper.pdf)] [[arXiv](https://arxiv.org/abs/2604.08074)] [[code](https://github.com/chr-is-tof/RADE-Net)]
 
 * **HyperDet: 3D Object Detection with Hyper 4D Radar Point Clouds**<br>
 Arxiv 2026<br>
@@ -674,6 +707,10 @@ Arxiv 2026
 * **MLF-4DRCNet: Multi-Level Fusion with 4D Radar and Camera for 3D Object Detection in Autonomous Driving**                  
 Information Fusion 2026                  
 [[paper](https://arxiv.org/abs/2509.18613)]
+
+* **RADE-Net: Robust Attention Network for Radar-Only Object Detection in Adverse Weather**<br>
+IV 2026<br>
+[[paper](https://arxiv.org/abs/2602.19994)] [[code](https://github.com/chr-is-tof/RADE-Net)]
 
 
 ----
@@ -729,6 +766,10 @@ TITS 2024
 Sensors 2026                  
 [[paper](https://www.mdpi.com/1424-8220/26/9/2663)]
 
+* **SWG-Fusion: Soft weather-guided multimodal fusion with VLM-assistance for BEV object detection under harsh weather**<br>
+Pattern Recognition 2026 (BEV detection on RADIATE)<br>
+[[paper](https://doi.org/10.1016/j.patcog.2026.113398)]
+
 
 ----
 ## <a id="l4r"> LiDAR+4D Radar Fusion Detector<a href="#table-of-contents">🔝</a> 
@@ -758,9 +799,9 @@ AAAI 2025
 Arxiv 2025<br>
 [[paper](https://arxiv.org/abs/2505.09422)]
 
-* **Availability-aware Sensor Fusion via Unified Canonical Space for 4D Radar, LiDAR, and Camera**                  
-Arxiv 2025                  
-[[paper](https://arxiv.org/abs/2503.07029)]  
+* **Availability-aware Sensor Fusion via Unified Canonical Space**<br>
+NeurIPS 2025<br>
+[[paper](https://proceedings.neurips.cc/paper_files/paper/2025/hash/80bd5c815cdb033ac23eb27605adaaba-Abstract-Conference.html)] [[arXiv](https://arxiv.org/abs/2503.07029)] [[code](https://github.com/kaist-avelab/K-Radar)]
 
 * **DLRFusion: Doppler-Aware LiDAR-RADAR Fusion for Weather-Robust 3D Detection**                  
 ICCV 2025                  
@@ -788,6 +829,14 @@ Arxiv 2026
 Information Fusion 2026                  
 [[paper](https://www.sciencedirect.com/science/article/pii/S1566253526001193)]
 
+* **RAF: Reliability-Aware Fusion of Camera, LiDAR, and 4D RADAR for Robust 3D Object Detection in Adverse Weather**<br>
+ECCV 2026 (accepted)<br>
+[[paper](https://arxiv.org/abs/2607.04587)] [[code](https://github.com/parkie0517/RAF)]
+
+* **A 4D radar and LiDAR fusion framework for weather-robust 3D object detection**<br>
+Neural Networks (online 2026; volume year 2027)<br>
+[[paper](https://doi.org/10.1016/j.neunet.2026.109439)]
+
 
 ---
 ## <a id="icp"> with Cooperative Perception <a href="#table-of-contents">🔝</a> 
@@ -813,9 +862,13 @@ Arxiv 2025
 ### *2026*
 
 * **4-D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather**<br>
-DriveX Workshop 2026<br>
-[[paper](https://openreview.net/forum?id=JkPJVxD0q3)]
+CVPR Workshops (DriveX) 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Yazgan_4-D_Radar_Meets_LiDAR_and_Camera_Cooperative_Perception_under_Adverse_CVPRW_2026_paper.html)] [[code&data](https://github.com/fzi-forschungszentrum-informatik/SlimComm)]
 
 * **DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via Joint LiDAR-Based 3D Object Detection and Denoising**                  
 IV 2026                  
 [[paper](https://arxiv.org/abs/2507.06976)]
+
+* **Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions**<br>
+CVPR 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.html)]
