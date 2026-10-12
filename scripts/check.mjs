@@ -28,7 +28,8 @@ for (const p of data.papers) {
   assert.ok(p.tracks.every(id => data.tracks.some(t => t.id === id)));
 }
 const v2x = selectPapers(data, { ...defaults, q: 'v2x-r', year: '2025', resource: 'code', track: 'dataset' });
-assert.equal(v2x.length, 1, 'Combined query, year, resource and track filters should find V2X-R');
+assert.ok(v2x.some(p => p.title.startsWith('V2X-R: ')), 'Combined filters should include V2X-R even when V2X-Radar also matches');
+assert.ok(v2x.every(p => p.year === 2025 && p.tracks.includes('dataset') && hasResource(p, 'code')), 'Every combined-filter result must satisfy the year, track and resource constraints');
 const pendingProject = { links: [{ label: 'paper', url: 'https://example.org/paper' }, { label: 'arXiv', url: 'https://arxiv.org/abs/2512.13107' }, { label: 'project (code pending)', url: 'https://example.org/project' }] };
 assert.equal(hasResource(pendingProject, 'code'), false, 'A project with pending code must not count as available code');
 assert.equal(hasResource(pendingProject, 'data'), false);
