@@ -14,11 +14,13 @@
 
 ## 🏠 About
 
-Hi, this is the paper list about 3D Object Detection in Adverse Weather. It is mainly derived from papers that are considered meaningful during the last 3 years of research. Hopefully, it can provide some help for newbie researchers.
-﻿
+A curated bibliography of 3D object detection in adverse weather, including supporting datasets, weather simulation, LiDAR restoration, robustness evaluation, sensor fusion, and cooperative perception. Foundational work and recent publications are both included. Camera-only 3D detection is covered alongside LiDAR-based methods.
+
 It may be brief and there are some omissions, welcome to suggest them in the Issue, we will update them timely~. 
 
 We also provide an academic-style project homepage for a quick visual overview: [https://ylwhxht.github.io/Awesome-3D_Object_Detection_in_Adverse_Weather/](https://ylwhxht.github.io/Awesome-3D_Object_Detection_in_Adverse_Weather/).
+
+**Literature checked through October 12, 2026.** Preprints and author-reported acceptance are labeled explicitly. Year headings use the listed publication or online-first year; cross-listed papers represent one work. Supporting BEV datasets and image-based weather analyses are identified where applicable. See the [research update and verification notes](RESEARCH_UPDATE_2026-10-12.md) for the new entries, scope decisions, and resource-release limitations.
 
 If you think it's useful, come up with one ⭐， Thank you ^_^
 
@@ -28,7 +30,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 * [2026.3.26] Updated with recent 2025-2026 papers.
 * [2026.4.29] Updated papers.
 * [2026.6.4] Added recent 2026 papers/preprints on adverse-weather datasets, LiDAR simulation/restoration, multimodal detection, radar-camera detection, and LiDAR-radar fusion.
-* [2026.10.12] Added 11 recent works on datasets, LiDAR simulation/denoising, radar and multimodal detection, and cooperative perception; refreshed publication and resource links for DiffFusion, DinoRADE, ASF, and 4-D Radar Meets LiDAR and Camera.
+* [2026.10.12] Initial pass: added 11 recent works and refreshed publication/resource links. Expanded review: added 44 further distinct works (27 listed under 2026 and 17 earlier publications), filled dataset/benchmark and camera-only detection gaps, and corrected duplicate records, mismatched sources, publication years, and resource labels. See the [verification notes](RESEARCH_UPDATE_2026-10-12.md).
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
@@ -36,7 +38,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 * [Weather Quantitative Analysis](#eva)
 * [LiDAR Adverse Weather Simulation](#sim)
 * [LiDAR Denoiser](#lidarde)
-* [LiDAR-based/with Camera Detector](#lidar)
+* [LiDAR/Camera-based Detector](#lidar)
 * [4D Radar-based/with Camera Detector](#radar)
 * [LiDAR+3D Radar Fusion Detector](#l3r)
 * [LiDAR+4D Radar Fusion Detector](#l4r)
@@ -104,8 +106,11 @@ AI Transportation 2026
 
 * **Research Progress of Four-Dimensional Radar for Target Detection**                  
 Computers and Electrical Engineering 2026                  
-[[paper](https://www.sciencedirect.com/science/article/pii/S0045790626001503)]     
+[[paper](https://www.sciencedirect.com/science/article/pii/S0045790626001503)]
 
+* **The Static Fusion Paradox: A Degradation-Centric Survey of Multimodal Perception in Adverse Weather**<br>
+IEEE IV 2026<br>
+[[paper](https://doi.org/10.1109/IV66570.2026.11624098)]
 
 ----
 ## <a id="dataset"> Datasets <a href="#table-of-contents">🔝</a> 
@@ -118,33 +123,63 @@ CVPR 2020
 
  * **[WOD-DA]: Waymo Open Dataset Domain Adaptation**                  
 2020                  
-[[data](https://waymo.com/open/challenges/2020/domain-adaptation/)]  
+[[data](https://waymo.com/open/challenges/2020/domain-adaptation/)]
 
-### *2022*
+### *2021*
 
 * **[CADC]: Canadian Adverse Driving Conditions Dataset**                  
 IJRR 2021                  
-[[paper](https://www.mdpi.com/1424-8220/24/2/374)] [[data](https://gitee.com/yangmissionyang/cadc_devkit)]    
+[[paper](https://arxiv.org/abs/2001.10117)] [[data](https://github.com/mpitropov/cadc_devkit)]
+
+* **RADIATE: A Radar Dataset for Automotive Perception in Bad Weather**<br>
+ICRA 2021; radar BEV bounding boxes<br>
+[[paper](https://arxiv.org/abs/2010.09076)]
+
+### *2022*
+
+* **[K-Radar]: K-Radar: 4D Radar Object Detection for Autonomous Driving in Various Weather Conditions**<br>
+NeurIPS 2022<br>
+[[paper](https://proceedings.neurips.cc/paper_files/paper/2022/file/185fdf627eaae2abab36205dcd19b817-Paper-Datasets_and_Benchmarks.pdf)] [[code&data](https://github.com/kaist-avelab/K-Radar)]
+
+* **Ithaca365: Dataset and Driving Perception under Repeated and Challenging Weather Conditions**<br>
+CVPR 2022<br>
+[[paper](https://arxiv.org/abs/2208.01166)] [[project](https://ithaca365.mae.cornell.edu/)] [[code (SDK)](https://github.com/cdiazruiz/ithaca365-devkit)]
 
 ### *2023*
 
-* **[Kradar]: K-radar: 4d radar object detection for autonomous driving in various weather conditions**                  
-NIPS 2022                  
-[[paper](https://proceedings.neurips.cc/paper_files/paper/2022/file/185fdf627eaae2abab36205dcd19b817-Paper-Datasets_and_Benchmarks.pdf)] [[code&data](https://github.com/kaist-avelab/K-Radar)]  
-
 * **[WADS]: Winter adverse driving dataset for autonomy in inclement winter weather**                  
 Optical Engineering 2023                  
-[[paper](https://www.spiedigitallibrary.org/journals/optical-engineering/volume-62/issue-3/031207/Winter-adverse-driving-dataset-for-autonomy-in-inclement-winter-weather/10.1117/1.OE.62.3.031207.full)] [[code&data](https://bitbucket.org/autonomymtu/wads/src/master/)]  
+[[paper](https://www.spiedigitallibrary.org/journals/optical-engineering/volume-62/issue-3/031207/Winter-adverse-driving-dataset-for-autonomy-in-inclement-winter-weather/10.1117/1.OE.62.3.031207.full)] [[code&data](https://bitbucket.org/autonomymtu/wads/src/master/)]
 
-* **[SemanticSpray++]: SemanticSpray++: A Multimodal Dataset for Autonomous Driving in Wet Surface Conditions**                  
-IV 2024                  
-[[paper](https://ieeexplore.ieee.org/abstract/document/10588458)] [[code&data](https://semantic-spray-dataset.github.io/)]  
+* **Boreas: A Multi-Season Autonomous Driving Dataset**<br>
+International Journal of Robotics Research 2023; annotation coverage varies by task/split<br>
+[[paper](https://arxiv.org/abs/2203.10168)] [[project](https://www.boreas.utias.utoronto.ca/)] [[code (SDK)](https://github.com/utiasASRL/pyboreas)]
+
+* **aiMotive Dataset: A Multimodal Dataset for Robust Autonomous Driving with Long-Range Perception**<br>
+ICLR Workshop on Scene Representations for Autonomous Driving 2023<br>
+[[paper](https://arxiv.org/abs/2211.09445)] [[project & data](https://github.com/aimotive/aimotive_dataset)]
 
 ### *2024*
 
 * **Is Your LiDAR Placement Optimized for 3D Scene Understanding?**                  
 NIPS 2024                  
-[[paper](https://proceedings.neurips.cc/paper_files/paper/2024/file/3dbb8b6b5576b85afb3037e9630812dc-Paper-Conference.pdf)] [[code&data](https://github.com/ywyeli/Place3D)]  
+[[paper](https://proceedings.neurips.cc/paper_files/paper/2024/file/3dbb8b6b5576b85afb3037e9630812dc-Paper-Conference.pdf)] [[code&data](https://github.com/ywyeli/Place3D)]
+
+* **[SemanticSpray++]: SemanticSpray++: A Multimodal Dataset for Autonomous Driving in Wet Surface Conditions**<br>
+IV 2024<br>
+[[paper](https://ieeexplore.ieee.org/abstract/document/10588458)] [[code&data](https://semantic-spray-dataset.github.io/)]
+
+* **MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection**<br>
+IEEE IV 2024<br>
+[[paper](https://arxiv.org/abs/2402.11677)] [[code & data](https://github.com/ika-rwth-aachen/MultiCorrupt)]
+
+* **MSU-4S - The Michigan State University Four Seasons Dataset**<br>
+CVPR 2024<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2024/html/Kent_MSU-4S_-_The_Michigan_State_University_Four_Seasons_Dataset_CVPR_2024_paper.html)] [[project & data](https://www.egr.msu.edu/waves/msu4s/)]
+
+* **MAN TruckScenes: A multimodal dataset for autonomous trucking in diverse conditions**<br>
+NeurIPS 2024 (Datasets and Benchmarks)<br>
+[[paper](https://arxiv.org/abs/2407.07462)] [[code (SDK)](https://github.com/TUMFTM/truckscenes-devkit)] [[data](https://registry.opendata.aws/man-truckscenes/)]
 
 ### *2025*
 
@@ -168,6 +203,26 @@ ICCV 2025<br>
 Arxiv 2025                  
 [[paper](https://arxiv.org/abs/2507.02245)] [[code&data](https://github.com/NingMingHao/CoInfra)] [[data](https://huggingface.co/datasets/MinghaoNing/CoInfra)]
 
+* **MSC-Bench: Benchmarking and Analyzing Multi-Sensor Corruption for Driving Perception**<br>
+ICME 2025<br>
+[[paper](https://arxiv.org/abs/2501.01037)] [[project](https://msc-bench.github.io/)]
+
+* **Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception Under Adverse Weather Conditions**<br>
+ITSC 2025<br>
+[[paper](https://arxiv.org/abs/2410.06380)] [[code & data](https://github.com/QUARRG/Adver-City)] [[project](https://labs.cs.queensu.ca/quarrg/datasets/adver-city/)]
+
+* **[RoboBEV]: Benchmarking and Improving Bird's Eye View Perception Robustness in Autonomous Driving**<br>
+IEEE TPAMI 2025<br>
+[[paper](https://arxiv.org/abs/2405.17426)] [[code & data](https://github.com/worldbench/RoboBEV)]
+
+* **V2X-Radar: A Multi-modal Dataset with 4D Radar for Cooperative Perception**<br>
+NeurIPS 2025 (Spotlight)<br>
+[[paper](https://arxiv.org/abs/2411.10962)] [[code & data](https://github.com/yanglei18/V2X-Radar)]
+
+* **S2R-Bench: A Sim-to-Real Evaluation Benchmark for Autonomous Driving**<br>
+Scientific Data 2025<br>
+[[paper](https://arxiv.org/abs/2505.18631)] [[code & data](https://github.com/adept-thu/S2R-Bench)]
+
 ### *2026*
 
 * **[IQA3D]: Weather-Robust LiDAR Perception: Point Cloud Restoration from Adverse Weather**                  
@@ -190,6 +245,21 @@ arXiv 2026 (preprint)<br>
 CVPR Workshops (DriveX) 2026<br>
 [[paper](https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Yazgan_4-D_Radar_Meets_LiDAR_and_Camera_Cooperative_Perception_under_Adverse_CVPRW_2026_paper.html)] [[code&data](https://github.com/fzi-forschungszentrum-informatik/SlimComm)]
 
+* **DSERT-RoLL: Robust Multi-Modal Perception for Diverse Driving Conditions with Stereo Event-RGB-Thermal Cameras, 4D Radar, and Dual-LiDAR**<br>
+CVPR 2026<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026/html/Cho_DSERT-RoLL_Robust_Multi-Modal_Perception_for_Diverse_Driving_Conditions_with_Stereo_CVPR_2026_paper.html)] [[code](https://github.com/Chohoonhee/DSERT-RoLL-3DOD)] [[data & SDK](https://github.com/jeongyh98/DSERT-RoLL-Dataset)] [[project](https://jeongyh98.github.io/dsert-roll/)]
+
+* **FogDrive: A Multi-Modal Synthetic Driving Dataset for Perception under Graded Fog**<br>
+arXiv 2026 (preprint; data release announced)<br>
+[[paper](https://arxiv.org/abs/2607.22698)]
+
+* **Snowy Scenes: A Multimodal Multitask Dataset Toward Snow-Tonomous Vehicles**<br>
+IEEE Robotics and Automation Letters 2026<br>
+[[paper](https://doi.org/10.1109/LRA.2026.3717187)] [[project & data](https://sporsho.github.io/SnowyScenes.html)]
+
+* **SV2V-RSim: A Comprehensive Benchmark for Self-Selective V2V Cooperative Perception with Near-Realistic Data**<br>
+arXiv 2026 (preprint; data/code release announced)<br>
+[[paper](https://arxiv.org/abs/2609.32863)]
 
 ----
 ## <a id="eva"> Weather Quantitative Analysis<a href="#table-of-contents">🔝</a> 
@@ -237,15 +307,37 @@ CVPR 2023
 Arxiv 2024                  
 [[paper](https://arxiv.org/abs/2408.01085)]
 
+* **MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection**<br>
+IEEE IV 2024<br>
+[[paper](https://arxiv.org/abs/2402.11677)] [[code & data](https://github.com/ika-rwth-aachen/MultiCorrupt)]
+
+### *2025*
+
+* **MSC-Bench: Benchmarking and Analyzing Multi-Sensor Corruption for Driving Perception**<br>
+ICME 2025<br>
+[[paper](https://arxiv.org/abs/2501.01037)] [[project](https://msc-bench.github.io/)]
+
+* **[RoboBEV]: Benchmarking and Improving Bird's Eye View Perception Robustness in Autonomous Driving**<br>
+IEEE TPAMI 2025<br>
+[[paper](https://arxiv.org/abs/2405.17426)] [[code & data](https://github.com/worldbench/RoboBEV)]
+
+* **S2R-Bench: A Sim-to-Real Evaluation Benchmark for Autonomous Driving**<br>
+Scientific Data 2025<br>
+[[paper](https://arxiv.org/abs/2505.18631)] [[code & data](https://github.com/adept-thu/S2R-Bench)]
+
 ### *2026*
 
 * **[MuFoRa]: MuFoRa: A Multimodal Dataset and the Impact of Adverse Weather on Camera and LiDAR**                  
 SN Computer Science 2026                  
 [[paper](https://doi.org/10.1007/s42979-026-04976-9)] [[data](https://doi.org/10.5281/zenodo.14175611)]
 
+* **Beyond the Snowflakes: Disentangling Weather Effects from Confounding Meta-Factors in LiDAR Object Detection**<br>
+IROS 2026 (author-reported; WADS3D release announced)<br>
+[[author project](https://yimingyang-mtu.github.io/publication/2026-03-02-IEEE-IROS)]
 
-
-
+* **Perception Characteristics Distance: Measuring Stability and Robustness of Perception System in Dynamic Conditions under a Certain Decision Rule**<br>
+CVPR 2026; supporting weather analysis, image-based detection evaluation<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_Perception_Characteristics_Distance_Measuring_Stability_and_Robustness_of_Perception_System_CVPR_2026_paper.html)]
 
 ----
 ## <a id="sim"> LiDAR Adverse Weather Simulation<a href="#table-of-contents">🔝</a> 
@@ -270,7 +362,7 @@ Arxiv  2021
 [[paper](https://arxiv.org/abs/2107.07004)] [[code](https://github.com/velatkilic/LISA)]    
 ### *2022*
 
- * **[Snow Simulation]:**                  
+ * **[Snow Simulation]: LiDAR Snowfall Simulation for Robust 3D Object Detection**<br>
 CVPR 2022                  
 [[paper](https://arxiv.org/abs/2203.15118)] [[code](https://github.com/SysCV/LiDAR_snow_sim)]    
 
@@ -291,11 +383,11 @@ IV 2023
 
 * **[Various Simulation]: Robo3D: Towards Robust and Reliable 3D Perception against Corruptions**                  
 ICCV 2023                  
-[[paper](http://openaccess.thecvf.com/content/ICCV2023/papers/Kong_Robo3D_Towards_Robust_and_Reliable_3D_Perception_against_Corruptions_ICCV_2023_paper.pdf)] [[code](https://github.com/ldkong1205/Robo3D.)]  
+[[paper](http://openaccess.thecvf.com/content/ICCV2023/papers/Kong_Robo3D_Towards_Robust_and_Reliable_3D_Perception_against_Corruptions_ICCV_2023_paper.pdf)] [[code](https://github.com/ldkong1205/Robo3D)]
 
 * **[Snow Simulation]: L-DIG: A GAN-Based Method for LiDAR Point Cloud Processing under Snow Driving Conditions**                  
 Sensors 2023                  
-[[paper](https://www.mdpi.com/2072-4292/16/12/2247)]
+[[paper](https://www.mdpi.com/1424-8220/23/21/8660)]
 ### *2024*
 
 * **[Snow Simulation]: LiDAR Point Cloud Augmentation for Adverse Conditions Using Conditional Generative Model**                  
@@ -345,6 +437,13 @@ arXiv 2026 (preprint)<br>
 Expert Systems with Applications 2026<br>
 [[paper](https://doi.org/10.1016/j.eswa.2026.132768)]
 
+* **A Data Efficiency Study of Synthetic Fog for Object Detection Using the Clear2Fog Pipeline**<br>
+Neurocomputing 2026; camera/LiDAR fog simulation, image-based detection study<br>
+[[paper](https://arxiv.org/abs/2605.12608)] [[code](https://github.com/mmohamed28/Clear2Fog)]
+
+* **Multi-Sensor Alignment for Weather Simulations**<br>
+SPCOM 2026<br>
+[[paper](https://arxiv.org/abs/2607.25612)]
 
 ----
 ## <a id="lidarde"> LiDAR Denoiser<a href="#table-of-contents">🔝</a> 
@@ -378,10 +477,6 @@ Arxiv 2021
 
 ### *2022*
 
- * **LiSnowNet: Real-time Snow Removal for LiDAR Point Cloud**                  
-IROS 2022                  
- [[paper](https://arxiv.org/abs/2211.10023)]   
-
  * **De-snowing LiDAR Point Clouds With Intensity and Spatial-Temporal Features**                  
 ICRA 2022                  
  [[paper](https://ieeexplore.ieee.org/document/9812241)]   
@@ -395,21 +490,17 @@ ICUS 2022
 
  * **LiSnowNet: Real-time Snow Removal for LiDAR Point Clouds**                  
 IROS 2022                  
- [[paper](https://ieeexplore.ieee.org/abstract/document/9982248)] [[code](https://github.com/umautobots/lisnownet?search=1)]
+ [[paper](https://ieeexplore.ieee.org/abstract/document/9982248)] [[arXiv](https://arxiv.org/abs/2211.10023)] [[code](https://github.com/umautobots/lisnownet)]
 
 
- * **4denoisenet: Adverse weather denoising from adjacent point clouds**                  
+ * **4DenoiseNet: Adverse Weather Denoising from Adjacent Point Clouds**<br>
 RAL. 2022                  
- [[paper](https://www.mdpi.com/2072-4292/14/6/1468)]  [[code](https://github.com/alvariseppanen/4DenoiseNet)]
+ [[paper](https://arxiv.org/abs/2209.07121)]  [[code](https://github.com/alvariseppanen/4DenoiseNet)]
 
 
  * **Adaptive Two-Stage Filter for De-snowing LiDAR Point Clouds**                  
 ICCRI 2022                  
- [[paper](https://ieeexplore.ieee.org/abstract/document/10223164)]
-
- * **Towards Robust 3D Object Detection In Rainy Conditions** ITSC 2022                  
-[[paper](https://www.mdpi.com/2072-4292/16/12/2247/pdf)] [[code](https://github.com/julycrow/3D_Object_Detection_Winter)]
-
+ [[paper](https://doi.org/10.1109/ICCRI55461.2022.00013)]
 
 ### *2023*
 
@@ -516,13 +607,20 @@ IEEE Transactions on Geoscience and Remote Sensing 2026<br>
 Scientific Reports 2026<br>
 [[paper](https://doi.org/10.1038/s41598-026-38674-6)]
 
+* **LiDAR Point Cloud Denoising in Adverse Weather Based on Motion Compensation and Intensity-Aware Temporal Modeling**<br>
+IDSAC 2026<br>
+[[paper](https://doi.org/10.1109/IDSAC70973.2026.11650632)]
+
+* **LiDAR Desnowing via Adaptive Snow-Candidate Generation and Confidence-Based Label Correction**<br>
+IEEE Access 2026<br>
+[[paper](https://doi.org/10.1109/ACCESS.2026.3663286)]
 
 ----
 
 
 
 
-## <a id="lidar"> LiDAR-based/with Camera Detector<a href="#table-of-contents">🔝</a> 
+## <a id="lidar"> LiDAR/Camera-based Detector<a href="#table-of-contents">🔝</a>
 
 ### *2020*
 
@@ -534,7 +632,7 @@ Arxiv 2020
 ### *2021*
 
 * **SPG: Unsupervised Domain Adaptation for 3D Object Detection via Semantic Point Generation**                  
-CVPR 2021                  
+ICCV 2021<br>
 [[paper](https://openaccess.thecvf.com/content/ICCV2021/papers/Xu_SPG_Unsupervised_Domain_Adaptation_for_3D_Object_Detection_via_Semantic_ICCV_2021_paper.pdf)]  
 
 * **3D Object Detection with SLS-Fusion Network in Foggy Weather Conditions**<br>
@@ -550,7 +648,7 @@ ICRA 2022
 
 * **LossDistillNet: 3D Object Detection in Point Cloud Under Harsh Weather Conditions**                  
  Access 2022                  
-[[paper](https://arxiv.org/abs/2303.11040)]
+[[paper](https://doi.org/10.1109/ACCESS.2022.3197765)]
 
 * **Robust 3D Object Detection in Cold Weather Conditions**                  
 IV 2022                  
@@ -577,6 +675,9 @@ ICRA 2023
 ICECET 2023                  
 [[paper](https://arxiv.org/pdf/2401.09049)]
 
+* **Towards Robust 3D Object Detection In Rainy Conditions** ITSC 2023<br>
+[[paper](https://arxiv.org/abs/2310.00944)]
+
 ### *2024*
 
  * **Geometric information constraint 3D object detection from LiDAR point cloud for autonomous vehicles under adverse weather**                  
@@ -599,11 +700,11 @@ Electronics 2024<br>
 
 * **LiDAR Point Cloud Augmentation for Adverse Conditions Using Conditional Generative Model**                  
 Remote Sensing 2024                  
-[[paper](https://www.mdpi.com/2072-4292/16/12/2247/pdf)]
+[[paper](https://www.mdpi.com/2072-4292/16/12/2247)]
 
-
-
-
+* **MonoWAD: Weather-Adaptive Diffusion Model for Robust Monocular 3D Object Detection**<br>
+ECCV 2024; monocular<br>
+[[paper](https://arxiv.org/abs/2407.16448)] [[code](https://github.com/VisualAIKHU/MonoWAD)]
 
 ### *2025*
 
@@ -633,6 +734,18 @@ ICIC 2025
 ICLR 2025                  
 [[paper](https://arxiv.org/abs/2406.14878)] [[code](https://github.com/zhuoxiao-chen/MOS)]
 
+* **[MoME]: Resilient Sensor Fusion Under Adverse Sensor Failures via Multi-Modal Expert Fusion**<br>
+CVPR 2025<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2025/html/Park_Resilient_Sensor_Fusion_Under_Adverse_Sensor_Failures_via_Multi-Modal_Expert_CVPR_2025_paper.html)] [[code](https://github.com/konyul/MoME)]
+
+* **Improving Weather-based OOD Generalisation in Lidar-based Object Detection Models via Adversarial Training**<br>
+CVPR Workshops (SAIAD) 2025<br>
+[[paper](https://openaccess.thecvf.com/content/CVPR2025W/SAIAD/html/Batten_Improving_Weather-based_OOD_Generalisation_in_Lidar-based_Object_Detection_Models_via_CVPRW_2025_paper.html)]
+
+* **BEVFog: Enhancing Vision-Based Roadside 3D Object Detection Robustness Under Foggy Conditions**<br>
+ECAI 2025; roadside camera-based<br>
+[[paper](https://doi.org/10.3233/FAIA251235)]
+
 ### *2026*
 
 * **SeBFusion: Semantic-Enhanced Bidirectional Multimodal Fusion for 3D Object Detection Under Adverse Weather**                  
@@ -659,12 +772,48 @@ Digital Signal Processing 2026
 IEEE Robotics and Automation Letters 2026<br>
 [[paper](https://doi.org/10.1109/LRA.2026.3692085)] [[arXiv](https://arxiv.org/abs/2512.13107)] [[project (code pending)](https://github.com/SCNU-RISLAB/DiffFusion)]
 
+* **UniDA3D: A Unified Domain-Adaptive Framework for Multi-View 3D Object Detection**<br>
+arXiv 2026 (preprint; camera-based)<br>
+[[paper](https://arxiv.org/abs/2603.27995)]
+
+* **RayD3D: Distilling Depth Knowledge Along the Ray for Robust Multi-View 3D Object Detection**<br>
+arXiv 2026 (preprint; camera-based)<br>
+[[paper](https://arxiv.org/abs/2603.07493)]
+
+* **Post Fusion Bird's Eye View Feature Stabilization for Robust Multimodal 3D Detection**<br>
+IROS 2026 (accepted, per author preprint)<br>
+[[paper](https://arxiv.org/abs/2603.05623)]
+
+* **PASENet: Snowy Scene 3D Object Detection With Pillar-Wise Attention and Semantic Enhancement**<br>
+IET Image Processing (first online 2025; volume year 2026)<br>
+[[paper](https://doi.org/10.1049/ipr2.70257)]
+
+* **PhD-DETR: Physics-guided depth-aware transformer for monocular 3D object detection under adverse weather conditions**<br>
+Applied Soft Computing 2026; monocular<br>
+[[paper](https://doi.org/10.1016/j.asoc.2026.116147)]
+
+* **ResiDet: Robust point cloud object detection framework under degraded visual environments with state space model**<br>
+Pattern Recognition 2026<br>
+[[paper](https://doi.org/10.1016/j.patcog.2026.114477)]
+
+* **WILD SAM: A Simulated-and-Real Data Augmentation for Autonomous Driving Perception under Challenging Weather**<br>
+arXiv 2026 (preprint)<br>
+[[paper](https://arxiv.org/abs/2605.01081)] [[code](https://github.com/Kh-Hamed/WILD-SAM)]
+
+* **Physically Interpretable Object Detection in Foggy Point Cloud**<br>
+IEEE Transactions on Multimedia 2026<br>
+[[paper](https://doi.org/10.1109/TMM.2026.3729394)]
+
+* **FogFusion: Robust 3D object detection based on camera-LiDAR fusion for autonomous driving in foggy weather conditions**<br>
+Proceedings of the IMechE, Part D (first online 2025; volume year 2026)<br>
+[[paper](https://doi.org/10.1177/09544070251327229)]
+
 ----
 ## <a id="radar"> 4D Radar-based/with Camera Detector <a href="#table-of-contents">🔝</a> 
 ### *2022*
 
-* **[RTNH]: K-radar: 4d radar object detection for autonomous driving in various weather conditions**                  
-NIPS 2022                  
+* **K-Radar: 4D Radar Object Detection for Autonomous Driving in Various Weather Conditions**<br>
+NeurIPS 2022<br>
 [[paper](https://proceedings.neurips.cc/paper_files/paper/2022/file/185fdf627eaae2abab36205dcd19b817-Paper-Datasets_and_Benchmarks.pdf)] [[code&data](https://github.com/kaist-avelab/K-Radar)]  
 ### *2024*
 
@@ -712,6 +861,21 @@ Information Fusion 2026
 IV 2026<br>
 [[paper](https://arxiv.org/abs/2602.19994)] [[code](https://github.com/chr-is-tof/RADE-Net)]
 
+* **STAR: Scene- and Task-Aware 4D Radar Preprocessing Towards End-to-End Cognitive Radar**<br>
+arXiv 2026 (preprint)<br>
+[[paper](https://arxiv.org/abs/2609.24151)]
+
+* **SRF: Stereo-Radar Fusion for 3D Object Detection in Adverse Weather Conditions**<br>
+IEEE IV 2026<br>
+[[paper](https://doi.org/10.1109/IV66570.2026.11624060)]
+
+* **[RFusion4D]: Robust Fusion of 4-D Radar and Camera for All-Weather Perception in Autonomous Driving**<br>
+IEEE Open Journal of Intelligent Transportation Systems 2026<br>
+[[paper](https://doi.org/10.1109/OJITS.2026.3706683)]
+
+* **DISADet: Depth interaction and semantic alignment for 4D radar–camera 3D object detection**<br>
+Displays (volume year 2027; available online 2026)<br>
+[[paper](https://doi.org/10.1016/j.displa.2026.103666)]
 
 ----
 ## <a id="l3r"> LiDAR+3D Radar Fusion Detector<a href="#table-of-contents">🔝</a> 
@@ -758,7 +922,11 @@ ECCV 2024
 
 * **TransFusion: Multi-Modal Robust Fusion for 3D Object Detection in Foggy Weather Based on Spatial Vision Transformer**                  
 TITS 2024                  
-[[paper](https://ieeexplore.ieee.org/abstract/document/10591357)] 
+[[paper](https://ieeexplore.ieee.org/abstract/document/10591357)]
+
+* **3D Detection Under Foggy Weather: The Effective Multi-Sensor Fusion of LiDAR and Radar**<br>
+IEEE SECON 2024<br>
+[[paper](https://doi.org/10.1109/SECON64284.2024.10934948)]
 
 ### *2026*
 
@@ -834,9 +1002,16 @@ ECCV 2026 (accepted)<br>
 [[paper](https://arxiv.org/abs/2607.04587)] [[code](https://github.com/parkie0517/RAF)]
 
 * **A 4D radar and LiDAR fusion framework for weather-robust 3D object detection**<br>
-Neural Networks (online 2026; volume year 2027)<br>
+Neural Networks (volume year 2027; available online 2026)<br>
 [[paper](https://doi.org/10.1016/j.neunet.2026.109439)]
 
+* **Open-Weather Robust 3D Detection via Dual-Critic Diffusion Alignment**<br>
+ECCV 2026 (camera-ready preprint)<br>
+[[paper](https://arxiv.org/abs/2607.01983)]
+
+* **ATN3D: Density-Aware LiDAR-Radar Early 3D Object Detection Under Extreme Sparsity**<br>
+arXiv 2026 (preprint)<br>
+[[paper](https://arxiv.org/abs/2606.09634)]
 
 ---
 ## <a id="icp"> with Cooperative Perception <a href="#table-of-contents">🔝</a> 
@@ -846,18 +1021,26 @@ Neural Networks (online 2026; volume year 2027)<br>
 Arxiv 2024                  
 [[paper](https://arxiv.org/html/2403.11371)]    
 
- * **Weather-Aware Collaborative Perception With Uncertainty Reduction has been published**                  
+ * **Weather-Aware Collaborative Perception With Uncertainty Reduction**<br>
 TITS 2024                  
-[[paper](https://ieeexplore.ieee.org/document/10739668)] [[data](https://waymo.com/open/challenges/2020/domain-adaptation/)]   
+[[paper](https://ieeexplore.ieee.org/document/10739668)]
 ### *2025*
 
- * **V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion**                  
+ * **V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection**<br>
 CVPR 2025                  
-[[paper](https://arxiv.org/abs/2411.08402)] [[code](https://github.com/ylwhxht/V2X-R)]
+[[paper](https://openaccess.thecvf.com/content/CVPR2025/html/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.html)] [[code](https://github.com/ylwhxht/V2X-R)]
 
 * **CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather**                  
 Arxiv 2025                  
 [[paper](https://arxiv.org/abs/2507.02245)] [[code&data](https://github.com/NingMingHao/CoInfra)] [[data](https://huggingface.co/datasets/MinghaoNing/CoInfra)]
+
+* **Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception Under Adverse Weather Conditions**<br>
+ITSC 2025<br>
+[[paper](https://arxiv.org/abs/2410.06380)] [[code & data](https://github.com/QUARRG/Adver-City)] [[project](https://labs.cs.queensu.ca/quarrg/datasets/adver-city/)]
+
+* **V2X-Radar: A Multi-modal Dataset with 4D Radar for Cooperative Perception**<br>
+NeurIPS 2025 (Spotlight)<br>
+[[paper](https://arxiv.org/abs/2411.10962)] [[code & data](https://github.com/yanglei18/V2X-Radar)]
 
 ### *2026*
 
@@ -872,3 +1055,11 @@ IV 2026
 * **Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions**<br>
 CVPR 2026<br>
 [[paper](https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.html)]
+
+* **SV2V-RSim: A Comprehensive Benchmark for Self-Selective V2V Cooperative Perception with Near-Realistic Data**<br>
+arXiv 2026 (preprint; data/code release announced)<br>
+[[paper](https://arxiv.org/abs/2609.32863)]
+
+* **Toward Robust Collaborative Perception under Adverse Weather Conditions via Dual-branch Network**<br>
+ICRA 2026<br>
+[[paper](https://doi.org/10.1109/ICRA57385.2026.11696280)]

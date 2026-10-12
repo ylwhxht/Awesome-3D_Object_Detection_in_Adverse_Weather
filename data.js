@@ -260,6 +260,22 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "136b600d2965",
+      "title": "The Static Fusion Paradox: A Degradation-Centric Survey of Multimodal Perception in Adverse Weather",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE IV 2026",
+      "tracks": [
+        "surveys"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/IV66570.2026.11624098"
+        }
+      ]
+    },
+    {
       "id": "aafcad8acad9",
       "title": "Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather",
       "aliases": [
@@ -307,7 +323,7 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "83abc4dff503",
+      "id": "e93bcb00573e",
       "title": "Canadian Adverse Driving Conditions Dataset",
       "aliases": [
         "CADC"
@@ -320,23 +336,38 @@ window.ATLAS_DATA = {
       "links": [
         {
           "label": "paper",
-          "url": "https://www.mdpi.com/1424-8220/24/2/374"
+          "url": "https://arxiv.org/abs/2001.10117"
         },
         {
           "label": "data",
-          "url": "https://gitee.com/yangmissionyang/cadc_devkit"
+          "url": "https://github.com/mpitropov/cadc_devkit"
+        }
+      ]
+    },
+    {
+      "id": "f07f3ce24307",
+      "title": "RADIATE: A Radar Dataset for Automotive Perception in Bad Weather",
+      "aliases": [],
+      "year": 2021,
+      "venue": "ICRA 2021; radar BEV bounding boxes",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2010.09076"
         }
       ]
     },
     {
       "id": "09a21a50de73",
-      "title": "K-radar: 4d radar object detection for autonomous driving in various weather conditions",
+      "title": "K-Radar: 4D Radar Object Detection for Autonomous Driving in Various Weather Conditions",
       "aliases": [
-        "Kradar",
-        "RTNH"
+        "K-Radar"
       ],
       "year": 2022,
-      "venue": "NIPS 2022",
+      "venue": "NeurIPS 2022",
       "tracks": [
         "dataset",
         "radar"
@@ -349,6 +380,30 @@ window.ATLAS_DATA = {
         {
           "label": "code&data",
           "url": "https://github.com/kaist-avelab/K-Radar"
+        }
+      ]
+    },
+    {
+      "id": "45222e82b84d",
+      "title": "Ithaca365: Dataset and Driving Perception under Repeated and Challenging Weather Conditions",
+      "aliases": [],
+      "year": 2022,
+      "venue": "CVPR 2022",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2208.01166"
+        },
+        {
+          "label": "project",
+          "url": "https://ithaca365.mae.cornell.edu/"
+        },
+        {
+          "label": "code (SDK)",
+          "url": "https://github.com/cdiazruiz/ithaca365-devkit"
         }
       ]
     },
@@ -375,6 +430,70 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "8dd24df6eab3",
+      "title": "Boreas: A Multi-Season Autonomous Driving Dataset",
+      "aliases": [],
+      "year": 2023,
+      "venue": "International Journal of Robotics Research 2023; annotation coverage varies by task/split",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2203.10168"
+        },
+        {
+          "label": "project",
+          "url": "https://www.boreas.utias.utoronto.ca/"
+        },
+        {
+          "label": "code (SDK)",
+          "url": "https://github.com/utiasASRL/pyboreas"
+        }
+      ]
+    },
+    {
+      "id": "eed93adbc0b3",
+      "title": "aiMotive Dataset: A Multimodal Dataset for Robust Autonomous Driving with Long-Range Perception",
+      "aliases": [],
+      "year": 2023,
+      "venue": "ICLR Workshop on Scene Representations for Autonomous Driving 2023",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2211.09445"
+        },
+        {
+          "label": "project & data",
+          "url": "https://github.com/aimotive/aimotive_dataset"
+        }
+      ]
+    },
+    {
+      "id": "32124391f1be",
+      "title": "Is Your LiDAR Placement Optimized for 3D Scene Understanding?",
+      "aliases": [],
+      "year": 2024,
+      "venue": "NIPS 2024",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/3dbb8b6b5576b85afb3037e9630812dc-Paper-Conference.pdf"
+        },
+        {
+          "label": "code&data",
+          "url": "https://github.com/ywyeli/Place3D"
+        }
+      ]
+    },
+    {
       "id": "3aaffc5f3d6a",
       "title": "SemanticSpray++: A Multimodal Dataset for Autonomous Driving in Wet Surface Conditions",
       "aliases": [
@@ -397,22 +516,67 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "32124391f1be",
-      "title": "Is Your LiDAR Placement Optimized for 3D Scene Understanding?",
+      "id": "4ffb758520de",
+      "title": "MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection",
       "aliases": [],
       "year": 2024,
-      "venue": "NIPS 2024",
+      "venue": "IEEE IV 2024",
+      "tracks": [
+        "dataset",
+        "eva"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2402.11677"
+        },
+        {
+          "label": "code & data",
+          "url": "https://github.com/ika-rwth-aachen/MultiCorrupt"
+        }
+      ]
+    },
+    {
+      "id": "e939eecd488e",
+      "title": "MSU-4S - The Michigan State University Four Seasons Dataset",
+      "aliases": [],
+      "year": 2024,
+      "venue": "CVPR 2024",
       "tracks": [
         "dataset"
       ],
       "links": [
         {
           "label": "paper",
-          "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/3dbb8b6b5576b85afb3037e9630812dc-Paper-Conference.pdf"
+          "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Kent_MSU-4S_-_The_Michigan_State_University_Four_Seasons_Dataset_CVPR_2024_paper.html"
         },
         {
-          "label": "code&data",
-          "url": "https://github.com/ywyeli/Place3D"
+          "label": "project & data",
+          "url": "https://www.egr.msu.edu/waves/msu4s/"
+        }
+      ]
+    },
+    {
+      "id": "63a1e4562e7f",
+      "title": "MAN TruckScenes: A multimodal dataset for autonomous trucking in diverse conditions",
+      "aliases": [],
+      "year": 2024,
+      "venue": "NeurIPS 2024 (Datasets and Benchmarks)",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2407.07462"
+        },
+        {
+          "label": "code (SDK)",
+          "url": "https://github.com/TUMFTM/truckscenes-devkit"
+        },
+        {
+          "label": "data",
+          "url": "https://registry.opendata.aws/man-truckscenes/"
         }
       ]
     },
@@ -469,7 +633,8 @@ window.ATLAS_DATA = {
       "year": 2025,
       "venue": "CVPR 2025",
       "tracks": [
-        "dataset"
+        "dataset",
+        "icp"
       ],
       "links": [
         {
@@ -478,6 +643,10 @@ window.ATLAS_DATA = {
         },
         {
           "label": "code&data",
+          "url": "https://github.com/ylwhxht/V2X-R"
+        },
+        {
+          "label": "code",
           "url": "https://github.com/ylwhxht/V2X-R"
         }
       ]
@@ -524,6 +693,117 @@ window.ATLAS_DATA = {
         {
           "label": "data",
           "url": "https://huggingface.co/datasets/MinghaoNing/CoInfra"
+        }
+      ]
+    },
+    {
+      "id": "b0da5aebfafd",
+      "title": "MSC-Bench: Benchmarking and Analyzing Multi-Sensor Corruption for Driving Perception",
+      "aliases": [],
+      "year": 2025,
+      "venue": "ICME 2025",
+      "tracks": [
+        "dataset",
+        "eva"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2501.01037"
+        },
+        {
+          "label": "project",
+          "url": "https://msc-bench.github.io/"
+        }
+      ]
+    },
+    {
+      "id": "745cd9d1243e",
+      "title": "Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception Under Adverse Weather Conditions",
+      "aliases": [],
+      "year": 2025,
+      "venue": "ITSC 2025",
+      "tracks": [
+        "dataset",
+        "icp"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2410.06380"
+        },
+        {
+          "label": "code & data",
+          "url": "https://github.com/QUARRG/Adver-City"
+        },
+        {
+          "label": "project",
+          "url": "https://labs.cs.queensu.ca/quarrg/datasets/adver-city/"
+        }
+      ]
+    },
+    {
+      "id": "0db041815177",
+      "title": "Benchmarking and Improving Bird's Eye View Perception Robustness in Autonomous Driving",
+      "aliases": [
+        "RoboBEV"
+      ],
+      "year": 2025,
+      "venue": "IEEE TPAMI 2025",
+      "tracks": [
+        "dataset",
+        "eva"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2405.17426"
+        },
+        {
+          "label": "code & data",
+          "url": "https://github.com/worldbench/RoboBEV"
+        }
+      ]
+    },
+    {
+      "id": "49ff84d0000d",
+      "title": "V2X-Radar: A Multi-modal Dataset with 4D Radar for Cooperative Perception",
+      "aliases": [],
+      "year": 2025,
+      "venue": "NeurIPS 2025 (Spotlight)",
+      "tracks": [
+        "dataset",
+        "icp"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2411.10962"
+        },
+        {
+          "label": "code & data",
+          "url": "https://github.com/yanglei18/V2X-Radar"
+        }
+      ]
+    },
+    {
+      "id": "703536707681",
+      "title": "S2R-Bench: A Sim-to-Real Evaluation Benchmark for Autonomous Driving",
+      "aliases": [],
+      "year": 2025,
+      "venue": "Scientific Data 2025",
+      "tracks": [
+        "dataset",
+        "eva"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2505.18631"
+        },
+        {
+          "label": "code & data",
+          "url": "https://github.com/adept-thu/S2R-Bench"
         }
       ]
     },
@@ -624,6 +904,87 @@ window.ATLAS_DATA = {
         {
           "label": "code&data",
           "url": "https://github.com/fzi-forschungszentrum-informatik/SlimComm"
+        }
+      ]
+    },
+    {
+      "id": "cb91b2b98ddd",
+      "title": "DSERT-RoLL: Robust Multi-Modal Perception for Diverse Driving Conditions with Stereo Event-RGB-Thermal Cameras, 4D Radar, and Dual-LiDAR",
+      "aliases": [],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Cho_DSERT-RoLL_Robust_Multi-Modal_Perception_for_Diverse_Driving_Conditions_with_Stereo_CVPR_2026_paper.html"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/Chohoonhee/DSERT-RoLL-3DOD"
+        },
+        {
+          "label": "data & SDK",
+          "url": "https://github.com/jeongyh98/DSERT-RoLL-Dataset"
+        },
+        {
+          "label": "project",
+          "url": "https://jeongyh98.github.io/dsert-roll/"
+        }
+      ]
+    },
+    {
+      "id": "061053c44a8d",
+      "title": "FogDrive: A Multi-Modal Synthetic Driving Dataset for Perception under Graded Fog",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint; data release announced)",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2607.22698"
+        }
+      ]
+    },
+    {
+      "id": "19f95454bb59",
+      "title": "Snowy Scenes: A Multimodal Multitask Dataset Toward Snow-Tonomous Vehicles",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE Robotics and Automation Letters 2026",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/LRA.2026.3717187"
+        },
+        {
+          "label": "project & data",
+          "url": "https://sporsho.github.io/SnowyScenes.html"
+        }
+      ]
+    },
+    {
+      "id": "3ea7693a5d72",
+      "title": "SV2V-RSim: A Comprehensive Benchmark for Self-Selective V2V Cooperative Perception with Near-Realistic Data",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint; data/code release announced)",
+      "tracks": [
+        "dataset",
+        "icp"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2609.32863"
         }
       ]
     },
@@ -788,6 +1149,38 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "b0ceacde950a",
+      "title": "Beyond the Snowflakes: Disentangling Weather Effects from Confounding Meta-Factors in LiDAR Object Detection",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IROS 2026 (author-reported; WADS3D release announced)",
+      "tracks": [
+        "eva"
+      ],
+      "links": [
+        {
+          "label": "author project",
+          "url": "https://yimingyang-mtu.github.io/publication/2026-03-02-IEEE-IROS"
+        }
+      ]
+    },
+    {
+      "id": "a73b2fcd68db",
+      "title": "Perception Characteristics Distance: Measuring Stability and Robustness of Perception System in Dynamic Conditions under a Certain Decision Rule",
+      "aliases": [],
+      "year": 2026,
+      "venue": "CVPR 2026; supporting weather analysis, image-based detection evaluation",
+      "tracks": [
+        "eva"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_Perception_Characteristics_Distance_Measuring_Stability_and_Robustness_of_Perception_System_CVPR_2026_paper.html"
+        }
+      ]
+    },
+    {
       "id": "ec9549994c30",
       "title": "Fog Simulation on Real LiDAR Point Clouds for 3D Object Detection in Adverse Weather",
       "aliases": [
@@ -832,8 +1225,8 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "cf05e3616578",
-      "title": "Snow Simulation",
+      "id": "9c0ad1086a73",
+      "title": "LiDAR Snowfall Simulation for Robust 3D Object Detection",
       "aliases": [
         "Snow Simulation"
       ],
@@ -911,12 +1304,12 @@ window.ATLAS_DATA = {
         },
         {
           "label": "code",
-          "url": "https://github.com/ldkong1205/Robo3D."
+          "url": "https://github.com/ldkong1205/Robo3D"
         }
       ]
     },
     {
-      "id": "ab5ddd9edfc2",
+      "id": "0095d68eed77",
       "title": "L-DIG: A GAN-Based Method for LiDAR Point Cloud Processing under Snow Driving Conditions",
       "aliases": [
         "Snow Simulation"
@@ -929,7 +1322,7 @@ window.ATLAS_DATA = {
       "links": [
         {
           "label": "paper",
-          "url": "https://www.mdpi.com/2072-4292/16/12/2247"
+          "url": "https://www.mdpi.com/1424-8220/23/21/8660"
         }
       ]
     },
@@ -942,7 +1335,8 @@ window.ATLAS_DATA = {
       "year": 2024,
       "venue": "Remote Sens. 2024",
       "tracks": [
-        "sim"
+        "sim",
+        "lidar"
       ],
       "links": [
         {
@@ -1105,6 +1499,42 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "358043ed7264",
+      "title": "A Data Efficiency Study of Synthetic Fog for Object Detection Using the Clear2Fog Pipeline",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Neurocomputing 2026; camera/LiDAR fog simulation, image-based detection study",
+      "tracks": [
+        "sim"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2605.12608"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/mmohamed28/Clear2Fog"
+        }
+      ]
+    },
+    {
+      "id": "c68f22c66463",
+      "title": "Multi-Sensor Alignment for Weather Simulations",
+      "aliases": [],
+      "year": 2026,
+      "venue": "SPCOM 2026",
+      "tracks": [
+        "sim"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2607.25612"
+        }
+      ]
+    },
+    {
       "id": "20ac5d6f72dd",
       "title": "De-noising of lidar point clouds corrupted by snowfall",
       "aliases": [],
@@ -1177,22 +1607,6 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "a3d3b8d206b6",
-      "title": "LiSnowNet: Real-time Snow Removal for LiDAR Point Cloud",
-      "aliases": [],
-      "year": 2022,
-      "venue": "IROS 2022",
-      "tracks": [
-        "lidarde"
-      ],
-      "links": [
-        {
-          "label": "paper",
-          "url": "https://arxiv.org/abs/2211.10023"
-        }
-      ]
-    },
-    {
       "id": "9c36ee685b18",
       "title": "De-snowing LiDAR Point Clouds With Intensity and Spatial-Temporal Features",
       "aliases": [],
@@ -1259,14 +1673,18 @@ window.ATLAS_DATA = {
           "url": "https://ieeexplore.ieee.org/abstract/document/9982248"
         },
         {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2211.10023"
+        },
+        {
           "label": "code",
-          "url": "https://github.com/umautobots/lisnownet?search=1"
+          "url": "https://github.com/umautobots/lisnownet"
         }
       ]
     },
     {
-      "id": "d7d3d16ee517",
-      "title": "4denoisenet: Adverse weather denoising from adjacent point clouds",
+      "id": "a29361f0a56c",
+      "title": "4DenoiseNet: Adverse Weather Denoising from Adjacent Point Clouds",
       "aliases": [],
       "year": 2022,
       "venue": "RAL. 2022",
@@ -1276,7 +1694,7 @@ window.ATLAS_DATA = {
       "links": [
         {
           "label": "paper",
-          "url": "https://www.mdpi.com/2072-4292/14/6/1468"
+          "url": "https://arxiv.org/abs/2209.07121"
         },
         {
           "label": "code",
@@ -1285,7 +1703,7 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "dd4b75614661",
+      "id": "583f8b8c5ef8",
       "title": "Adaptive Two-Stage Filter for De-snowing LiDAR Point Clouds",
       "aliases": [],
       "year": 2022,
@@ -1296,27 +1714,7 @@ window.ATLAS_DATA = {
       "links": [
         {
           "label": "paper",
-          "url": "https://ieeexplore.ieee.org/abstract/document/10223164"
-        }
-      ]
-    },
-    {
-      "id": "6795ebb4b76a",
-      "title": "Towards Robust 3D Object Detection In Rainy Conditions",
-      "aliases": [],
-      "year": 2022,
-      "venue": "ITSC 2022",
-      "tracks": [
-        "lidarde"
-      ],
-      "links": [
-        {
-          "label": "paper",
-          "url": "https://www.mdpi.com/2072-4292/16/12/2247/pdf"
-        },
-        {
-          "label": "code",
-          "url": "https://github.com/julycrow/3D_Object_Detection_Winter"
+          "url": "https://doi.org/10.1109/ICCRI55461.2022.00013"
         }
       ]
     },
@@ -1693,6 +2091,38 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "339007b71014",
+      "title": "LiDAR Point Cloud Denoising in Adverse Weather Based on Motion Compensation and Intensity-Aware Temporal Modeling",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IDSAC 2026",
+      "tracks": [
+        "lidarde"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/IDSAC70973.2026.11650632"
+        }
+      ]
+    },
+    {
+      "id": "7908d8912516",
+      "title": "LiDAR Desnowing via Adaptive Snow-Candidate Generation and Confidence-Based Label Correction",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE Access 2026",
+      "tracks": [
+        "lidarde"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/ACCESS.2026.3663286"
+        }
+      ]
+    },
+    {
       "id": "3ac7001c4cf6",
       "title": "1st Place Solution for Waymo Open Dataset Challenge - 3D Detection and Domain Adaptation",
       "aliases": [],
@@ -1713,7 +2143,7 @@ window.ATLAS_DATA = {
       "title": "SPG: Unsupervised Domain Adaptation for 3D Object Detection via Semantic Point Generation",
       "aliases": [],
       "year": 2021,
-      "venue": "CVPR 2021",
+      "venue": "ICCV 2021",
       "tracks": [
         "lidar"
       ],
@@ -1757,7 +2187,7 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "d388f7f337ce",
+      "id": "723ef4d4b522",
       "title": "LossDistillNet: 3D Object Detection in Point Cloud Under Harsh Weather Conditions",
       "aliases": [],
       "year": 2022,
@@ -1768,7 +2198,7 @@ window.ATLAS_DATA = {
       "links": [
         {
           "label": "paper",
-          "url": "https://arxiv.org/abs/2303.11040"
+          "url": "https://doi.org/10.1109/ACCESS.2022.3197765"
         }
       ]
     },
@@ -1857,6 +2287,22 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "d11be13182fe",
+      "title": "Towards Robust 3D Object Detection In Rainy Conditions",
+      "aliases": [],
+      "year": 2023,
+      "venue": "ITSC 2023",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2310.00944"
+        }
+      ]
+    },
+    {
       "id": "7b0a7517d969",
       "title": "Geometric information constraint 3D object detection from LiDAR point cloud for autonomous vehicles under adverse weather",
       "aliases": [],
@@ -1910,18 +2356,22 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "7a499872515c",
-      "title": "LiDAR Point Cloud Augmentation for Adverse Conditions Using Conditional Generative Model",
+      "id": "8b107dbe1299",
+      "title": "MonoWAD: Weather-Adaptive Diffusion Model for Robust Monocular 3D Object Detection",
       "aliases": [],
       "year": 2024,
-      "venue": "Remote Sensing 2024",
+      "venue": "ECCV 2024; monocular",
       "tracks": [
         "lidar"
       ],
       "links": [
         {
           "label": "paper",
-          "url": "https://www.mdpi.com/2072-4292/16/12/2247/pdf"
+          "url": "https://arxiv.org/abs/2407.16448"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/VisualAIKHU/MonoWAD"
         }
       ]
     },
@@ -2030,6 +2480,60 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "14857e1f8e65",
+      "title": "Resilient Sensor Fusion Under Adverse Sensor Failures via Multi-Modal Expert Fusion",
+      "aliases": [
+        "MoME"
+      ],
+      "year": 2025,
+      "venue": "CVPR 2025",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Park_Resilient_Sensor_Fusion_Under_Adverse_Sensor_Failures_via_Multi-Modal_Expert_CVPR_2025_paper.html"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/konyul/MoME"
+        }
+      ]
+    },
+    {
+      "id": "75090b1fa112",
+      "title": "Improving Weather-based OOD Generalisation in Lidar-based Object Detection Models via Adversarial Training",
+      "aliases": [],
+      "year": 2025,
+      "venue": "CVPR Workshops (SAIAD) 2025",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025W/SAIAD/html/Batten_Improving_Weather-based_OOD_Generalisation_in_Lidar-based_Object_Detection_Models_via_CVPRW_2025_paper.html"
+        }
+      ]
+    },
+    {
+      "id": "a28dbe553d8b",
+      "title": "BEVFog: Enhancing Vision-Based Roadside 3D Object Detection Robustness Under Foggy Conditions",
+      "aliases": [],
+      "year": 2025,
+      "venue": "ECAI 2025; roadside camera-based",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.3233/FAIA251235"
+        }
+      ]
+    },
+    {
       "id": "2df0dc0d4db0",
       "title": "SeBFusion: Semantic-Enhanced Bidirectional Multimodal Fusion for 3D Object Detection Under Adverse Weather",
       "aliases": [],
@@ -2134,6 +2638,154 @@ window.ATLAS_DATA = {
         {
           "label": "project (code pending)",
           "url": "https://github.com/SCNU-RISLAB/DiffFusion"
+        }
+      ]
+    },
+    {
+      "id": "5d76d8889b55",
+      "title": "UniDA3D: A Unified Domain-Adaptive Framework for Multi-View 3D Object Detection",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint; camera-based)",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2603.27995"
+        }
+      ]
+    },
+    {
+      "id": "035a029c0ccb",
+      "title": "RayD3D: Distilling Depth Knowledge Along the Ray for Robust Multi-View 3D Object Detection",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint; camera-based)",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2603.07493"
+        }
+      ]
+    },
+    {
+      "id": "d1fed6c0fa1e",
+      "title": "Post Fusion Bird's Eye View Feature Stabilization for Robust Multimodal 3D Detection",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IROS 2026 (accepted, per author preprint)",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2603.05623"
+        }
+      ]
+    },
+    {
+      "id": "200cee6324c0",
+      "title": "PASENet: Snowy Scene 3D Object Detection With Pillar-Wise Attention and Semantic Enhancement",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IET Image Processing (first online 2025; volume year 2026)",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1049/ipr2.70257"
+        }
+      ]
+    },
+    {
+      "id": "65c54c8ff98a",
+      "title": "PhD-DETR: Physics-guided depth-aware transformer for monocular 3D object detection under adverse weather conditions",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Applied Soft Computing 2026; monocular",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1016/j.asoc.2026.116147"
+        }
+      ]
+    },
+    {
+      "id": "2a32f55646bb",
+      "title": "ResiDet: Robust point cloud object detection framework under degraded visual environments with state space model",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Pattern Recognition 2026",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1016/j.patcog.2026.114477"
+        }
+      ]
+    },
+    {
+      "id": "70064cc09b17",
+      "title": "WILD SAM: A Simulated-and-Real Data Augmentation for Autonomous Driving Perception under Challenging Weather",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint)",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2605.01081"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/Kh-Hamed/WILD-SAM"
+        }
+      ]
+    },
+    {
+      "id": "3a2f679ce1f4",
+      "title": "Physically Interpretable Object Detection in Foggy Point Cloud",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE Transactions on Multimedia 2026",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/TMM.2026.3729394"
+        }
+      ]
+    },
+    {
+      "id": "fe8e3703d870",
+      "title": "FogFusion: Robust 3D object detection based on camera-LiDAR fusion for autonomous driving in foggy weather conditions",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Proceedings of the IMechE, Part D (first online 2025; volume year 2026)",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1177/09544070251327229"
         }
       ]
     },
@@ -2310,6 +2962,72 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "997d1e3cc621",
+      "title": "STAR: Scene- and Task-Aware 4D Radar Preprocessing Towards End-to-End Cognitive Radar",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint)",
+      "tracks": [
+        "radar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2609.24151"
+        }
+      ]
+    },
+    {
+      "id": "ed92e037a1d9",
+      "title": "SRF: Stereo-Radar Fusion for 3D Object Detection in Adverse Weather Conditions",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE IV 2026",
+      "tracks": [
+        "radar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/IV66570.2026.11624060"
+        }
+      ]
+    },
+    {
+      "id": "52abbbe0b3c5",
+      "title": "Robust Fusion of 4-D Radar and Camera for All-Weather Perception in Autonomous Driving",
+      "aliases": [
+        "RFusion4D"
+      ],
+      "year": 2026,
+      "venue": "IEEE Open Journal of Intelligent Transportation Systems 2026",
+      "tracks": [
+        "radar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/OJITS.2026.3706683"
+        }
+      ]
+    },
+    {
+      "id": "d71e7b7c7112",
+      "title": "DISADet: Depth interaction and semantic alignment for 4D radar–camera 3D object detection",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Displays (volume year 2027; available online 2026)",
+      "tracks": [
+        "radar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1016/j.displa.2026.103666"
+        }
+      ]
+    },
+    {
       "id": "ca22e3aab587",
       "title": "Robust Multimodal Vehicle Detection in Foggy Weather Using Complementary Lidar and Radar Signals",
       "aliases": [],
@@ -2430,6 +3148,22 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://ieeexplore.ieee.org/abstract/document/10591357"
+        }
+      ]
+    },
+    {
+      "id": "cbc0bf7a62cb",
+      "title": "3D Detection Under Foggy Weather: The Effective Multi-Sensor Fusion of LiDAR and Radar",
+      "aliases": [],
+      "year": 2024,
+      "venue": "IEEE SECON 2024",
+      "tracks": [
+        "l3r"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/SECON64284.2024.10934948"
         }
       ]
     },
@@ -2710,11 +3444,11 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "09692039c602",
+      "id": "8deb4ddce272",
       "title": "A 4D radar and LiDAR fusion framework for weather-robust 3D object detection",
       "aliases": [],
-      "year": 2027,
-      "venue": "Neural Networks (online 2026; volume year 2027) ---",
+      "year": 2026,
+      "venue": "Neural Networks (volume year 2027; available online 2026)",
       "tracks": [
         "l4r"
       ],
@@ -2722,6 +3456,38 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://doi.org/10.1016/j.neunet.2026.109439"
+        }
+      ]
+    },
+    {
+      "id": "4337da5df28b",
+      "title": "Open-Weather Robust 3D Detection via Dual-Critic Diffusion Alignment",
+      "aliases": [],
+      "year": 2026,
+      "venue": "ECCV 2026 (camera-ready preprint)",
+      "tracks": [
+        "l4r"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2607.01983"
+        }
+      ]
+    },
+    {
+      "id": "e74eca49de84",
+      "title": "ATN3D: Density-Aware LiDAR-Radar Early 3D Object Detection Under Extreme Sparsity",
+      "aliases": [],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint) ---",
+      "tracks": [
+        "l4r"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2606.09634"
         }
       ]
     },
@@ -2742,8 +3508,8 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "839d1e5c1568",
-      "title": "Weather-Aware Collaborative Perception With Uncertainty Reduction has been published",
+      "id": "e2f821320a74",
+      "title": "Weather-Aware Collaborative Perception With Uncertainty Reduction",
       "aliases": [],
       "year": 2024,
       "venue": "TITS 2024",
@@ -2754,30 +3520,6 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://ieeexplore.ieee.org/document/10739668"
-        },
-        {
-          "label": "data",
-          "url": "https://waymo.com/open/challenges/2020/domain-adaptation/"
-        }
-      ]
-    },
-    {
-      "id": "093ecef31db0",
-      "title": "V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion",
-      "aliases": [],
-      "year": 2025,
-      "venue": "CVPR 2025",
-      "tracks": [
-        "icp"
-      ],
-      "links": [
-        {
-          "label": "paper",
-          "url": "https://arxiv.org/abs/2411.08402"
-        },
-        {
-          "label": "code",
-          "url": "https://github.com/ylwhxht/V2X-R"
         }
       ]
     },
@@ -2812,6 +3554,22 @@ window.ATLAS_DATA = {
           "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.html"
         }
       ]
+    },
+    {
+      "id": "b050286ec0fc",
+      "title": "Toward Robust Collaborative Perception under Adverse Weather Conditions via Dual-branch Network",
+      "aliases": [],
+      "year": 2026,
+      "venue": "ICRA 2026",
+      "tracks": [
+        "icp"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/ICRA57385.2026.11696280"
+        }
+      ]
     }
   ],
   "updates": [
@@ -2837,10 +3595,10 @@ window.ATLAS_DATA = {
     },
     {
       "date": "2026.10.12",
-      "text": "Added 11 recent works on datasets, LiDAR simulation/denoising, radar and multimodal detection, and cooperative perception; refreshed publication and resource links for DiffFusion, DinoRADE, ASF, and 4-D Radar Meets LiDAR and Camera."
+      "text": "Initial pass: added 11 recent works and refreshed publication/resource links. Expanded review: added 44 further distinct works (27 listed under 2026 and 17 earlier publications), filled dataset/benchmark and camera-only detection gaps, and corrected duplicate records, mismatched sources, publication years, and resource labels. See the [verification notes](RESEARCH_UPDATE_2026-10-12.md)."
     }
   ],
-  "sourceCount": 163,
+  "sourceCount": 213,
   "source": "https://github.com/ylwhxht/Awesome-3D_Object_Detection_in_Adverse_Weather",
   "updated": "2026.10.12"
 };
