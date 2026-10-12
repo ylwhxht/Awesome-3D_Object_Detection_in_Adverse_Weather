@@ -1,0 +1,11 @@
+{
+  "name": "adverse-weather-atlas",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A searchable research atlas for all-weather 3D perception.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node --check app.js && node --check scene.js && node scripts/check.mjs"
+  }
+}
