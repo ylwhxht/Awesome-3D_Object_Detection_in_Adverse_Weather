@@ -30,7 +30,7 @@ If you think it's useful, come up with one ⭐， Thank you ^_^
 * [2026.3.26] Updated with recent 2025-2026 papers.
 * [2026.4.29] Updated papers.
 * [2026.6.4] Added recent 2026 papers/preprints on adverse-weather datasets, LiDAR simulation/restoration, multimodal detection, radar-camera detection, and LiDAR-radar fusion.
-* [2026.10.12] Initial pass: added 11 recent works and refreshed publication/resource links. Expanded review: added 44 further distinct works (27 listed under 2026 and 17 earlier publications), filled dataset/benchmark and camera-only detection gaps, and corrected duplicate records, mismatched sources, publication years, and resource labels. See the [verification notes](RESEARCH_UPDATE_2026-10-12.md).
+* [2026.10.12] Initial pass: added 11 recent works and refreshed publication/resource links. Expanded review: added 44 further distinct works (27 listed under 2026 and 17 earlier publications), filled dataset/benchmark and camera-only detection gaps, and corrected duplicate records, mismatched sources, publication years, and resource labels. Detailed verification notes are included in the repository.
 
 ## <a id="table-of-contents">📚 Table of Contents </a>
 * [Survey](#surveys)
@@ -1013,7 +1013,7 @@ ECCV 2026 (camera-ready preprint)<br>
 arXiv 2026 (preprint)<br>
 [[paper](https://arxiv.org/abs/2606.09634)]
 
----
+----
 ## <a id="icp"> with Cooperative Perception <a href="#table-of-contents">🔝</a> 
 ### *2024*
 

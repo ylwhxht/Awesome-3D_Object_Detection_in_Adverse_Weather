@@ -3480,7 +3480,7 @@ window.ATLAS_DATA = {
       "title": "ATN3D: Density-Aware LiDAR-Radar Early 3D Object Detection Under Extreme Sparsity",
       "aliases": [],
       "year": 2026,
-      "venue": "arXiv 2026 (preprint) ---",
+      "venue": "arXiv 2026 (preprint)",
       "tracks": [
         "l4r"
       ],
@@ -3595,7 +3595,7 @@ window.ATLAS_DATA = {
     },
     {
       "date": "2026.10.12",
-      "text": "Initial pass: added 11 recent works and refreshed publication/resource links. Expanded review: added 44 further distinct works (27 listed under 2026 and 17 earlier publications), filled dataset/benchmark and camera-only detection gaps, and corrected duplicate records, mismatched sources, publication years, and resource labels. See the [verification notes](RESEARCH_UPDATE_2026-10-12.md)."
+      "text": "Initial pass: added 11 recent works and refreshed publication/resource links. Expanded review: added 44 further distinct works (27 listed under 2026 and 17 earlier publications), filled dataset/benchmark and camera-only detection gaps, and corrected duplicate records, mismatched sources, publication years, and resource labels. Detailed verification notes are included in the repository."
     }
   ],
   "sourceCount": 213,
