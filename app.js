@@ -208,7 +208,7 @@
   window.addEventListener('popstate', () => { state = parseState(new URLSearchParams(location.search), data); visible = 8; render(); });
   window.addEventListener('storage', event => { if (event.key === 'adverse-weather-reading-list') { const list = readLocal(event.key, []); saved = new Set((Array.isArray(list) ? list : []).filter(id => paperIds.has(id))); render(); } });
   const sectionObserver = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) $$('.nav-link').forEach(link => { const active = link.hash === '#' + entry.target.id; link.classList.toggle('active', active); if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); }); }, { rootMargin: '-15% 0px -60% 0px', threshold: 0 });
-  ['library', 'research-map', 'field-notes'].forEach(id => sectionObserver.observe(document.getElementById(id)));
+  ['research-map', 'field-notes', 'library'].forEach(id => sectionObserver.observe(document.getElementById(id)));
   showSensor('lidar'); render();
   const originalAnchor = location.hash.slice(1);
   if (trackById[originalAnchor]) { update({ track: originalAnchor }, { push: false, scroll: true }); }

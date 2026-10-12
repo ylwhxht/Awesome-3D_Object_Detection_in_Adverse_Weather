@@ -32,4 +32,13 @@
 - No browser error or warning logs were captured during the final checks.
 - Temporary responsive viewport override was reset after testing.
 
+## Typography, section order and motion refinement
+
+- Enlarged the body, navigation, card and control text; verified desktop, 390 × 844 and 320 × 740 layouts. Neither mobile width had horizontal overflow.
+- Main content now follows Research Map → Field Notes → community contribution → The Reading Room. Desktop and mobile navigation follow the same research / notes / library order.
+- Research-map selection still scrolls to the library and applies its filter: Weather simulation returned 21 resources. The Radar field-note action returned 11 resources in 4D radar & camera.
+- Replaced the nearly static scene with moving point clouds, scan planes and rings, radar rotation, tracked volumes, weather particles and pointer parallax. Labels were adjusted after inspecting small screens.
+- Checked all four weather controls and captions. Explicit play and pause choices survive reload; the initial reduced-motion setting still starts paused.
+- Two captures of the paused canvas were identical. Running captures showed changed scan positions and geometry. No warning or error logs appeared during these checks.
+
 Browser checks were performed in the Codex in-app browser. This was not a cross-engine Safari/Firefox test. External source links were preserved and checked for valid structure; their remote availability was not exhaustively rechecked.
