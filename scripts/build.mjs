@@ -68,5 +68,10 @@ writeFileSync(htmlPath, html);
 mkdirSync(path.join(root, 'dist', 'images'), { recursive: true });
 for (const file of ['index.html', 'styles.css', 'app.js', 'scene.js', 'data.js', 'favicon.svg', '.nojekyll']) copyFileSync(path.join(root, file), path.join(root, 'dist', file));
 copyFileSync(path.join(root, 'images', 'kradar_examples.png'), path.join(root, 'dist', 'images', 'kradar_examples.png'));
+for (const weather of ['clear', 'fog', 'rain', 'snow']) for (const extension of ['mp4', 'jpg']) {
+  const file = `camera-${weather}.${extension}`;
+  copyFileSync(path.join(root, 'images', file), path.join(root, 'dist', 'images', file));
+}
+copyFileSync(path.join(root, 'images', 'CAMERA-SOURCES.md'), path.join(root, 'dist', 'images', 'CAMERA-SOURCES.md'));
 cpSync(path.join(root, 'fonts'), path.join(root, 'dist', 'fonts'), { recursive: true });
 console.log(JSON.stringify({ papers: records.length, sourceEntries: sourceCount, tracks: tracks.length, sourceUpdated: data.updated, output: path.join(root, 'dist') }));
