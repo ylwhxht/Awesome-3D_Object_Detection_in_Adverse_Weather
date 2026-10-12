@@ -7,12 +7,26 @@
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const pauseButton = document.getElementById('pause-scene');
   const status = document.getElementById('scene-status');
+  const camera = document.getElementById('weather-camera');
+  const cameraFeed = document.getElementById('camera-feed');
+  const cameraPoster = document.getElementById('camera-poster');
+  const cameraMessage = document.getElementById('camera-message');
+  const cycleProgress = document.getElementById('cycle-progress');
+  const conditions = ['clear', 'fog', 'rain', 'snow'];
+  const cycleSeconds = 8;
+  const footage = {
+    clear: { name: 'Boreas', sequence: '2021-03-09-14-23', url: 'https://www.boreas.utias.utoronto.ca/#/download', license: 'CC BY 4.0' },
+    fog: { name: 'RADIATE', sequence: 'tiny_foggy / fog_6_0', url: 'https://github.com/marcelsheeny/radiate_sdk/tree/master/data/radiate/tiny_foggy', license: 'CC BY-NC-SA 4.0' },
+    rain: { name: 'Boreas', sequence: '2021-06-29-18-53', url: 'https://www.boreas.utias.utoronto.ca/#/download', license: 'CC BY 4.0' },
+    snow: { name: 'Boreas', sequence: '2021-01-26-11-22', url: 'https://www.boreas.utias.utoronto.ca/#/download', license: 'CC BY 4.0' }
+  };
   let motionChoice = null;
   try { motionChoice = localStorage.getItem('adverse-weather-motion'); } catch { /* Storage may be unavailable. */ }
   const random = n => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
   const wrap = (value, range) => ((value % range) + range) % range;
   const edges = [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
-  let width = 0, height = 0, weather = 'fog', paused = motionChoice === 'play' ? false : motionChoice === 'pause' ? true : reduceMotion.matches;
+  let width = 0, height = 0, weather = 'clear', paused = motionChoice === 'play' ? false : motionChoice === 'pause' ? true : reduceMotion.matches;
+  let weatherIndex = 0, weatherElapsed = 0, cameraRevision = 0;
   let inView = true, frame = 0, last = 0, phase = 0, yaw = 0, tilt = 0, scanZ = 10;
   let pointerX = 0, pointerY = 0, cameraX = 0, cameraY = 0;
   const ground = Array.from({ length: 2200 }, (_, i) => ({ x: (random(i + 1) - .5) * 34, z: random(i + 3300) * 84, size: .55 + random(i + 4000) }));
@@ -173,7 +187,14 @@
     frame = 0;
     if (paused || !inView || document.hidden) return;
     if (time - last >= 1000 / 30) {
-      phase += Math.min((time - last) / 1000, .08); last = time;
+      const elapsed = Math.min((time - last) / 1000, .25); last = time;
+      phase += elapsed;
+      weatherElapsed += elapsed;
+      if (weatherElapsed >= cycleSeconds) {
+        weatherElapsed %= cycleSeconds;
+        setWeather((weatherIndex + 1) % conditions.length);
+      }
+      cycleProgress.style.transform = `scaleX(${weatherElapsed / cycleSeconds})`;
       cameraX += (pointerX - cameraX) * .07; cameraY += (pointerY - cameraY) * .07;
       draw();
     }
@@ -183,6 +204,7 @@
     if (frame) cancelAnimationFrame(frame);
     frame = 0;
     if (!paused && inView && !document.hidden) { last = performance.now(); frame = requestAnimationFrame(loop); }
+    syncCamera();
   }
   function resize() {
     const rect = canvas.getBoundingClientRect(); width = rect.width; height = rect.height;
@@ -191,13 +213,53 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); draw();
   }
   const descriptions = { clear: 'A clear view. A starting point.', fog: 'Find the signal through the fog.', rain: 'Read the scene beyond the rain.', snow: 'Keep the geometry. Lose the noise.' };
-  document.querySelectorAll('[data-weather]').forEach(button => button.addEventListener('click', () => {
-    weather = button.dataset.weather;
-    document.querySelectorAll('[data-weather]').forEach(el => el.setAttribute('aria-pressed', String(el === button)));
+  function syncCamera() {
+    if (paused || !inView || document.hidden) { camera.pause(); return; }
+    if (!camera.paused || camera.error) return;
+    const revision = cameraRevision;
+    camera.play().catch(error => {
+      if (revision !== cameraRevision || error.name === 'AbortError') return;
+      if (error.name === 'NotAllowedError') {
+        paused = true;
+        syncPause();
+      } else showCameraError();
+    });
+  }
+  function showCameraError() {
+    cameraFeed.dataset.ready = 'false';
+    cameraMessage.textContent = 'Clip unavailable · view source ↗';
+    cameraMessage.hidden = false;
+  }
+  function setWeather(index) {
+    weatherIndex = index;
+    weather = conditions[index];
+    const source = footage[weather];
+    lab.dataset.weather = weather;
+    document.querySelectorAll('[data-condition]').forEach(el => {
+      if (el.dataset.condition === weather) el.setAttribute('aria-current', 'step');
+      else el.removeAttribute('aria-current');
+    });
     document.getElementById('weather-caption').textContent = descriptions[weather];
+    document.getElementById('cycle-position').textContent = `AUTO / 0${index + 1}`;
+    document.getElementById('cycle-next').textContent = `NEXT: ${conditions[(index + 1) % conditions.length].toUpperCase()}`;
+    document.getElementById('camera-weather').textContent = weather[0].toUpperCase() + weather.slice(1);
+    const credit = document.getElementById('camera-source');
+    credit.textContent = `${source.name} ↗`; credit.href = source.url;
+    credit.title = `${source.name} · ${source.sequence} · ${source.license}`;
     canvas.setAttribute('aria-label', `Illustrated moving 3D point-cloud road, scanning waves and tracked vehicles in ${weather === 'clear' ? 'clear weather' : weather}`);
+    cameraRevision++;
+    camera.pause();
+    cameraFeed.dataset.ready = 'false'; cameraMessage.hidden = true;
+    cameraPoster.src = `images/camera-${weather}.jpg`;
+    camera.poster = cameraPoster.src;
+    camera.setAttribute('aria-label', `${source.name} real front-camera footage in ${weather === 'clear' ? 'clear weather' : weather}`);
+    camera.src = `images/camera-${weather}.mp4`;
+    camera.load(); syncCamera();
     draw();
-  }));
+  }
+  camera.muted = true;
+  camera.addEventListener('loadeddata', () => { cameraFeed.dataset.ready = 'true'; cameraMessage.hidden = true; });
+  camera.addEventListener('error', showCameraError);
   lab.addEventListener('pointermove', event => {
     if (event.pointerType === 'touch') return;
     const rect = lab.getBoundingClientRect();
@@ -206,10 +268,10 @@
   }, { passive: true });
   lab.addEventListener('pointerleave', () => { pointerX = 0; pointerY = 0; });
   function syncPause() {
-    const label = paused ? 'Play illustration' : 'Pause illustration';
+    const label = paused ? 'Play weather cycle and camera' : 'Pause weather cycle and camera';
     pauseButton.setAttribute('aria-label', label); pauseButton.title = label;
     pauseButton.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause');
-    status.textContent = paused ? 'PAUSED · PRESS PLAY' : 'CONTINUOUS SCAN';
+    status.textContent = paused ? 'PAUSED · PRESS PLAY' : 'AUTO WEATHER · 8s';
     lab.dataset.motion = paused ? 'paused' : 'running';
     schedule();
   }
@@ -224,7 +286,8 @@
     syncPause(); draw();
   });
   document.addEventListener('visibilitychange', schedule);
-  new IntersectionObserver(entries => { inView = entries[0].isIntersecting; schedule(); }).observe(canvas);
+  new IntersectionObserver(entries => { inView = entries[0].isIntersecting; schedule(); }).observe(lab);
   new ResizeObserver(resize).observe(canvas);
+  if (camera.readyState >= 2) cameraFeed.dataset.ready = 'true';
   resize(); syncPause();
 })();

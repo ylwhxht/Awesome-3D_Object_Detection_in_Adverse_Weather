@@ -2,8 +2,8 @@
 
 ## Source integrity
 
-- Parsed all 163 categorized entries into 151 records; repeated records retain their categories. Includes the README update of 12 October 2026.
-- Preserved all 196 distinct paper, code, dataset, preprint, and project URLs from the source bibliography, with their original resource labels.
+- Parsed all 213 categorized entries into 192 records; repeated records retain their categories. Includes the expanded README update of 12 October 2026.
+- Preserved all 265 distinct paper, code, dataset, preprint, and project URLs from the source bibliography, with their original resource labels.
 - All 10 source research tracks, entry publication metadata, and original update dates are retained.
 - Source publication metadata is preserved, not independently re-audited.
 
@@ -16,7 +16,7 @@
 - Resource-filter regression checks passed: a project marked `code pending` does not count as available code, while `code&data` matches both resource filters.
 - Runtime asset references include content-based cache versions; validation checks each version against the current file contents.
 
-## Browser verification
+## Initial browser verification (151-record edition)
 
 - Desktop overview and library visually inspected.
 - Mobile at 390 × 844: navigation menu, research track selection, year selection, card layout and dark theme visually inspected.
@@ -41,4 +41,15 @@
 - Checked all four weather controls and captions. Explicit play and pause choices survive reload; the initial reduced-motion setting still starts paused.
 - Two captures of the paused canvas were identical. Running captures showed changed scan positions and geometry. No warning or error logs appeared during these checks.
 
-Browser checks were performed in the Codex in-app browser. This was not a cross-engine Safari/Firefox test. External source links were preserved and checked for valid structure; their remote availability was not exhaustively rechecked.
+## Automatic weather and real camera footage
+
+- Replaced manual weather selection with Clear → Fog → Rain → Snow, eight active seconds per condition. Observed all four conditions and the Snow → Clear wrap in the browser, with matching video filenames, labels and source credits.
+- Rebuilt against the concurrent bibliography update before publishing. Generated data is byte-for-byte identical to the latest main branch: 192 records, 213 category entries and 265 URLs; the updated combined-filter checks pass.
+- Inspected the camera inset at 1280 × 720, 390 × 844 and 320 × 740. The inset and weather list do not overlap; neither mobile width has horizontal overflow.
+- Camera playback reached ready state 4 at 640 × 360. Pausing held both the video time and cycle progress unchanged; resuming advanced to the next condition. Navigating below the hero paused the camera automatically.
+- All four MP4 files decoded without errors. Clear/rain/snow are eight seconds at 24 fps; the 3.4-second fog sample repeats within its eight-second slot. Total MP4 size: 1,396,914 bytes.
+- Verified Boreas sequence weather tags and CC BY 4.0 statement from its official catalogue. Verified the RADIATE sample metadata (`fog_6_0`, `fog`) and the dataset's CC BY-NC-SA 4.0 statement. Complete attribution and adaptations are recorded in `images/CAMERA-SOURCES.md`.
+- Local serving passed byte-range playback checks for every MP4 (206 and correct media type), an invalid range (416), and HEAD without a body. Build output includes all videos, posters and credits.
+- No browser warnings or errors were captured during these checks. Responsive viewport override was reset.
+
+Browser checks were performed in the Codex in-app browser. This was not a cross-engine Safari/Firefox test. External bibliography links were preserved and checked for valid structure; their remote availability was not exhaustively rechecked.
