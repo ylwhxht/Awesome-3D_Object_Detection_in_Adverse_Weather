@@ -14,6 +14,7 @@
 - `node scripts/check.mjs`: passed. Checks source counts and links, identifiers, compound filters, normalized searches, sort order, saved-only selection, invalid URL parameters, HTML escaping, unique DOM IDs, and local file references.
 - Local HTTP page: 200 response.
 - Resource-filter regression checks passed: a project marked `code pending` does not count as available code, while `code&data` matches both resource filters.
+- Runtime asset references include content-based cache versions; validation checks each version against the current file contents.
 
 ## Browser verification
 

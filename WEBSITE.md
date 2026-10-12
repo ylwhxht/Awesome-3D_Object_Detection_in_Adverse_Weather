@@ -24,9 +24,9 @@ GitHub Pages 从 `main` 分支的仓库根目录发布，项目主页为 <https:
 ## 更新文献
 
 1. 按原格式维护 `README.md` 中的论文、年份、分类和链接。
-2. 执行 `node scripts/build.mjs`，重新生成 `data.js` 和 `dist/`。
+2. 执行 `node scripts/build.mjs`，重新生成 `data.js`、`index.html` 中的资源版本标识和 `dist/`。
 3. 执行 `node --check app.js`、`node --check scene.js`、`node scripts/check.mjs`。
-4. 上传或提交更新后的静态文件。
+4. 上传或提交更新后的静态文件，包括 `index.html` 和 `data.js`。资源版本随内容变化，避免浏览器继续使用上一版脚本、样式或文献数据。
 
 解析器只合并标题、年份和主要来源链接相同的记录，并保留所有分类与补充链接；不同版本和来源中不同标题仍然独立保留。年份优先采用每条记录的出版信息，再回退到分组年份。
 
