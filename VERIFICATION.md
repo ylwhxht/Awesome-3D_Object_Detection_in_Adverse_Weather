@@ -2,8 +2,8 @@
 
 ## Source integrity
 
-- Parsed all 150 original categorized entries into 140 records; repeated records retain their categories.
-- Preserved all 178 distinct paper, code, and dataset URLs from the source bibliography.
+- Parsed all 163 categorized entries into 151 records; repeated records retain their categories. Includes the README update of 12 October 2026.
+- Preserved all 196 distinct paper, code, dataset, preprint, and project URLs from the source bibliography, with their original resource labels.
 - All 10 source research tracks, entry publication metadata, and original update dates are retained.
 - Source publication metadata is preserved, not independently re-audited.
 
@@ -13,6 +13,7 @@
 - `node scripts/build.mjs`: passed, static output generated.
 - `node scripts/check.mjs`: passed. Checks source counts and links, identifiers, compound filters, normalized searches, sort order, saved-only selection, invalid URL parameters, HTML escaping, unique DOM IDs, and local file references.
 - Local HTTP page: 200 response.
+- Resource-filter regression checks passed: a project marked `code pending` does not count as available code, while `code&data` matches both resource filters.
 
 ## Browser verification
 

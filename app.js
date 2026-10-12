@@ -3,7 +3,8 @@
   'use strict';
   const normalize = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const hasResource = (paper, kind) => paper.links.some(link => link.label.toLowerCase().includes(kind));
+  const linkHasResource = (link, kind) => link.label.toLowerCase().split('&').some(part => part.trim() === kind);
+  const hasResource = (paper, kind) => paper.links.some(link => linkHasResource(link, kind));
   const defaults = { q: '', track: 'all', year: 'all', resource: 'all', sort: 'newest', collection: 'all' };
   function parseState(params, data) {
     const result = { ...defaults };
@@ -74,7 +75,7 @@
     const safeLinks = paper.links.filter(l => /^https?:\/\//i.test(l.url));
     const links = safeLinks.map(l => {
       const label = l.label === 'paper' ? 'Paper' : l.label === 'code&data' ? 'Code & data' : l.label === 'data' ? 'Data' : l.label === 'code' ? 'Code' : l.label;
-      return `<a href="${escapeHTML(l.url)}" target="_blank" rel="noopener noreferrer">${icon(l.label.includes('code') ? 'code' : l.label === 'data' ? 'database' : 'external', 'small')}${escapeHTML(label)}<span class="sr-only">: ${escapeHTML(paper.title)} (opens in a new tab)</span></a>`;
+      return `<a href="${escapeHTML(l.url)}" target="_blank" rel="noopener noreferrer">${icon(linkHasResource(l, 'code') ? 'code' : linkHasResource(l, 'data') ? 'database' : 'external', 'small')}${escapeHTML(label)}<span class="sr-only">: ${escapeHTML(paper.title)} (opens in a new tab)</span></a>`;
     }).join('');
     return `<article class="paper-card" data-paper="${paper.id}"><span class="paper-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><div class="paper-content"><div class="paper-heading">${tags.map(t => `<span class="tag ${t.color}">${escapeHTML(t.short)}</span>`).join('')}<span class="paper-year">${paper.year}</span></div><h3><a href="${escapeHTML(primary.url)}" target="_blank" rel="noopener noreferrer">${titleMarkup(paper.title)}<span class="sr-only"> (opens in a new tab)</span></a></h3><div class="paper-meta"><span class="paper-venue">${escapeHTML(paper.venue)}</span><div class="paper-links">${links}</div></div></div><button class="save-paper" data-save="${paper.id}" aria-pressed="${saved.has(paper.id)}" aria-label="${saved.has(paper.id) ? 'Remove from' : 'Add to'} reading list: ${escapeHTML(paper.title)}" title="${saved.has(paper.id) ? 'Remove from reading list' : 'Save to reading list'}">${icon('bookmark')}</button></article>`;
   }

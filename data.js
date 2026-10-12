@@ -567,6 +567,67 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "a81b34652c5a",
+      "title": "URScenes: A Multi-scenario Dataset for Unstructured Road Environments",
+      "aliases": [
+        "URScenes"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "tracks": [
+        "dataset"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Liu_URScenes_A_Multi-scenario_Dataset_for_Unstructured_Road_Environments_CVPR_2026_paper.html"
+        }
+      ]
+    },
+    {
+      "id": "e50a80e2ae47",
+      "title": "ReaLiTy and LADS: A Unified Framework and Dataset Suite for LiDAR Adaptation Across Sensors and Adverse Weather Conditions",
+      "aliases": [
+        "LADS",
+        "Various Simulation"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026 (preprint)",
+      "tracks": [
+        "dataset",
+        "sim"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2604.10213"
+        }
+      ]
+    },
+    {
+      "id": "c2de4457ad8c",
+      "title": "4-D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather",
+      "aliases": [
+        "OPV2V-R / Adver-City-R"
+      ],
+      "year": 2026,
+      "venue": "CVPR Workshops (DriveX) 2026",
+      "tracks": [
+        "dataset",
+        "icp"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026W/DriveX/html/Yazgan_4-D_Radar_Meets_LiDAR_and_Camera_Cooperative_Perception_under_Adverse_CVPRW_2026_paper.html"
+        },
+        {
+          "label": "code&data",
+          "url": "https://github.com/fzi-forschungszentrum-informatik/SlimComm"
+        }
+      ]
+    },
+    {
       "id": "9744c9fac476",
       "title": "Performance of Laser and Radar Ranging Devices in Adverse Environmental Conditions",
       "aliases": [],
@@ -1004,6 +1065,42 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://arxiv.org/abs/2605.13815"
+        }
+      ]
+    },
+    {
+      "id": "6eb40f84a062",
+      "title": "Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation",
+      "aliases": [
+        "Various Simulation"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "tracks": [
+        "sim"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Ni_Structure-to-Intensity_Diffusion_for_Adverse-Weather_LiDAR_Generation_CVPR_2026_paper.html"
+        }
+      ]
+    },
+    {
+      "id": "8c39874cdebe",
+      "title": "From clear to snow: realistic LiDAR simulation via physical-statistical modeling",
+      "aliases": [
+        "Snow Simulation"
+      ],
+      "year": 2026,
+      "venue": "Expert Systems with Applications 2026",
+      "tracks": [
+        "sim"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1016/j.eswa.2026.132768"
         }
       ]
     },
@@ -1564,6 +1661,38 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "4661bfaa6c76",
+      "title": "Unsupervised Snowy-Weather Point Cloud Denoising via Two-Stage Filter-Network Collaboration",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing 2026",
+      "tracks": [
+        "lidarde"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/TGRS.2026.3687212"
+        }
+      ]
+    },
+    {
+      "id": "59f36faa98d2",
+      "title": "Spatially divided outlier removal for LiDAR de-noising in adverse weather conditions",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Scientific Reports 2026",
+      "tracks": [
+        "lidarde"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1038/s41598-026-38674-6"
+        }
+      ]
+    },
+    {
       "id": "3ac7001c4cf6",
       "title": "1st Place Solution for Waymo Open Dataset Challenge - 3D Detection and Domain Adaptation",
       "aliases": [],
@@ -1881,22 +2010,6 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "03a7dc8d0902",
-      "title": "DiffFusion: Diffusion-Based Restoration for Multi-Modal 3D Object Detection in Adverse Weather",
-      "aliases": [],
-      "year": 2025,
-      "venue": "Arxiv 2025",
-      "tracks": [
-        "lidar"
-      ],
-      "links": [
-        {
-          "label": "paper",
-          "url": "https://arxiv.org/abs/2512.13107"
-        }
-      ]
-    },
-    {
       "id": "caaff9057fcd",
       "title": "MOS: Model Synergy for Test-Time Adaptation on LiDAR-Based 3D Object Detection",
       "aliases": [],
@@ -2001,6 +2114,30 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "c41eceeb6738",
+      "title": "Diffusion-Based Restoration for Multi-Modal 3D Object Detection in Adverse Weather",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IEEE Robotics and Automation Letters 2026",
+      "tracks": [
+        "lidar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1109/LRA.2026.3692085"
+        },
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2512.13107"
+        },
+        {
+          "label": "project (code pending)",
+          "url": "https://github.com/SCNU-RISLAB/DiffFusion"
+        }
+      ]
+    },
+    {
       "id": "af87bd7d96c6",
       "title": "TL-4DRCF: A Two-Level 4-D Radar–Camera Fusion Method for Object Detection in Adverse Weather",
       "aliases": [],
@@ -2065,18 +2202,26 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "13e83b155f9c",
+      "id": "4af14afbb8f8",
       "title": "DinoRADE: Full Spectral Radar-Camera Fusion with Vision Foundation Model Features for Multi-class Object Detection in Adverse Weather",
       "aliases": [],
       "year": 2026,
-      "venue": "CVPR Workshops / Arxiv 2026",
+      "venue": "CVPR Workshops (DriveX) 2026",
       "tracks": [
         "radar"
       ],
       "links": [
         {
           "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026W/DriveX/papers/Leitgeb_DinoRADE_Full_Spectral_Radar-Camera_Fusion_with_Vision_Foundation_Model_Features_CVPRW_2026_paper.pdf"
+        },
+        {
+          "label": "arXiv",
           "url": "https://arxiv.org/abs/2604.08074"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/chr-is-tof/RADE-Net"
         }
       ]
     },
@@ -2141,6 +2286,26 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://arxiv.org/abs/2509.18613"
+        }
+      ]
+    },
+    {
+      "id": "87c6ecb6b826",
+      "title": "RADE-Net: Robust Attention Network for Radar-Only Object Detection in Adverse Weather",
+      "aliases": [],
+      "year": 2026,
+      "venue": "IV 2026",
+      "tracks": [
+        "radar"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2602.19994"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/chr-is-tof/RADE-Net"
         }
       ]
     },
@@ -2285,6 +2450,22 @@ window.ATLAS_DATA = {
       ]
     },
     {
+      "id": "afa5aec63d6c",
+      "title": "SWG-Fusion: Soft weather-guided multimodal fusion with VLM-assistance for BEV object detection under harsh weather",
+      "aliases": [],
+      "year": 2026,
+      "venue": "Pattern Recognition 2026 (BEV detection on RADIATE)",
+      "tracks": [
+        "l3r"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1016/j.patcog.2026.113398"
+        }
+      ]
+    },
+    {
       "id": "eefb02f66a22",
       "title": "Towards Robust 3D Object Detection with LiDAR and 4D Radar Fusion in Various Weather Conditions",
       "aliases": [],
@@ -2377,18 +2558,26 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "4750a20bc366",
-      "title": "Availability-aware Sensor Fusion via Unified Canonical Space for 4D Radar, LiDAR, and Camera",
+      "id": "00f648c67370",
+      "title": "Availability-aware Sensor Fusion via Unified Canonical Space",
       "aliases": [],
       "year": 2025,
-      "venue": "Arxiv 2025",
+      "venue": "NeurIPS 2025",
       "tracks": [
         "l4r"
       ],
       "links": [
         {
           "label": "paper",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/80bd5c815cdb033ac23eb27605adaaba-Abstract-Conference.html"
+        },
+        {
+          "label": "arXiv",
           "url": "https://arxiv.org/abs/2503.07029"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/kaist-avelab/K-Radar"
         }
       ]
     },
@@ -2489,7 +2678,7 @@ window.ATLAS_DATA = {
       "title": "FusionBev: LiDAR and 4D Radar Fusion for 3D Object Detection",
       "aliases": [],
       "year": 2026,
-      "venue": "Information Fusion 2026 ---",
+      "venue": "Information Fusion 2026",
       "tracks": [
         "l4r"
       ],
@@ -2497,6 +2686,42 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://www.sciencedirect.com/science/article/pii/S1566253526001193"
+        }
+      ]
+    },
+    {
+      "id": "0cb19cba08f1",
+      "title": "RAF: Reliability-Aware Fusion of Camera, LiDAR, and 4D RADAR for Robust 3D Object Detection in Adverse Weather",
+      "aliases": [],
+      "year": 2026,
+      "venue": "ECCV 2026 (accepted)",
+      "tracks": [
+        "l4r"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://arxiv.org/abs/2607.04587"
+        },
+        {
+          "label": "code",
+          "url": "https://github.com/parkie0517/RAF"
+        }
+      ]
+    },
+    {
+      "id": "09692039c602",
+      "title": "A 4D radar and LiDAR fusion framework for weather-robust 3D object detection",
+      "aliases": [],
+      "year": 2027,
+      "venue": "Neural Networks (online 2026; volume year 2027) ---",
+      "tracks": [
+        "l4r"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://doi.org/10.1016/j.neunet.2026.109439"
         }
       ]
     },
@@ -2557,22 +2782,6 @@ window.ATLAS_DATA = {
       ]
     },
     {
-      "id": "493c8249d0d4",
-      "title": "4-D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather",
-      "aliases": [],
-      "year": 2026,
-      "venue": "DriveX Workshop 2026",
-      "tracks": [
-        "icp"
-      ],
-      "links": [
-        {
-          "label": "paper",
-          "url": "https://openreview.net/forum?id=JkPJVxD0q3"
-        }
-      ]
-    },
-    {
       "id": "93fa85f30571",
       "title": "DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via Joint LiDAR-Based 3D Object Detection and Denoising",
       "aliases": [],
@@ -2585,6 +2794,22 @@ window.ATLAS_DATA = {
         {
           "label": "paper",
           "url": "https://arxiv.org/abs/2507.06976"
+        }
+      ]
+    },
+    {
+      "id": "19ab38969781",
+      "title": "Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions",
+      "aliases": [],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "tracks": [
+        "icp"
+      ],
+      "links": [
+        {
+          "label": "paper",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.html"
         }
       ]
     }
@@ -2609,9 +2834,13 @@ window.ATLAS_DATA = {
     {
       "date": "2026.6.4",
       "text": "Added recent 2026 papers/preprints on adverse-weather datasets, LiDAR simulation/restoration, multimodal detection, radar-camera detection, and LiDAR-radar fusion."
+    },
+    {
+      "date": "2026.10.12",
+      "text": "Added 11 recent works on datasets, LiDAR simulation/denoising, radar and multimodal detection, and cooperative perception; refreshed publication and resource links for DiffFusion, DinoRADE, ASF, and 4-D Radar Meets LiDAR and Camera."
     }
   ],
-  "sourceCount": 150,
+  "sourceCount": 163,
   "source": "https://github.com/ylwhxht/Awesome-3D_Object_Detection_in_Adverse_Weather",
-  "updated": "2026.6.4"
+  "updated": "2026.10.12"
 };
