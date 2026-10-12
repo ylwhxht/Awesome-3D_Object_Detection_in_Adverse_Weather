@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 import { createRequire } from 'node:module';
+import { createHash } from 'node:crypto';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { selectPapers, parseState, defaults, escapeHTML, hasResource } = createRequire(import.meta.url)('../app.js');
 const sandbox = { window: {} };
@@ -48,5 +49,12 @@ assert.equal(escapeHTML('<img src=x onerror="oops">'), '&lt;img src=x onerror=&q
 const html = readFileSync(path.join(root, 'index.html'), 'utf8');
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
 assert.equal(ids.length, new Set(ids).size, 'DOM IDs must be unique');
-for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) if (!/^(http|mailto)/.test(m[1])) assert.ok(existsSync(path.join(root, 'dist', m[1])), `Missing asset: ${m[1]}`);
+for (const m of html.matchAll(/(?:src|href)="([^"#:]+)"/g)) if (!/^(http|mailto)/.test(m[1])) {
+  const asset = m[1].split(/[?#]/)[0];
+  assert.ok(existsSync(path.join(root, 'dist', asset)), `Missing asset: ${asset}`);
+}
+for (const asset of ['styles.css', 'app.js', 'scene.js', 'data.js']) {
+  const version = createHash('sha256').update(readFileSync(path.join(root, asset))).digest('hex').slice(0, 12);
+  assert.ok(html.includes(`"${asset}?v=${version}"`), `Missing current cache version: ${asset}`);
+}
 console.log(`PASS: ${data.sourceCount} source records and ${retainedLinks.size} source links retained; compound search, sorting, saved lists, URL validation, HTML safety and local assets checked.`);

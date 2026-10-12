@@ -59,6 +59,12 @@ for (const p of records) delete p.key;
 const updates = [...readme.matchAll(/^\* \[(\d{4}\.\d{1,2}\.\d{1,2})\] (.*)$/gm)].map(m => ({ date: m[1], text: m[2] }));
 const data = { tracks, papers: records, updates, sourceCount, source: 'https://github.com/ylwhxht/Awesome-3D_Object_Detection_in_Adverse_Weather', updated: updates.at(-1)?.date };
 writeFileSync(path.join(root, 'data.js'), `/* Generated from README.md. Run node scripts/build.mjs to refresh. */\nwindow.ATLAS_DATA = ${JSON.stringify(data, null, 2)};\n`);
+const htmlPath = path.join(root, 'index.html');
+const html = readFileSync(htmlPath, 'utf8').replace(/((?:src|href)=")(styles\.css|app\.js|scene\.js|data\.js)(?:\?v=[^"]*)?"/g, (_, prefix, asset) => {
+  const version = createHash('sha256').update(readFileSync(path.join(root, asset))).digest('hex').slice(0, 12);
+  return `${prefix}${asset}?v=${version}"`;
+});
+writeFileSync(htmlPath, html);
 mkdirSync(path.join(root, 'dist', 'images'), { recursive: true });
 for (const file of ['index.html', 'styles.css', 'app.js', 'scene.js', 'data.js', 'favicon.svg', '.nojekyll']) copyFileSync(path.join(root, file), path.join(root, 'dist', file));
 copyFileSync(path.join(root, 'images', 'kradar_examples.png'), path.join(root, 'dist', 'images', 'kradar_examples.png'));
