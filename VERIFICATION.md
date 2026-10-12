@@ -51,5 +51,6 @@
 - Verified Boreas sequence weather tags and CC BY 4.0 statement from its official catalogue. Verified the RADIATE sample metadata (`fog_6_0`, `fog`) and the dataset's CC BY-NC-SA 4.0 statement. Complete attribution and adaptations are recorded in `images/CAMERA-SOURCES.md`.
 - Local serving passed byte-range playback checks for every MP4 (206 and correct media type), an invalid range (416), and HEAD without a body. Build output includes all videos, posters and credits.
 - No browser warnings or errors were captured during these checks. Responsive viewport override was reset.
+- Deployment-cache regression: an older cached HTML page briefly loaded the new script before its camera elements existed. Added compatibility guards and tested the archived HTML with the new script: point-cloud rendering and automatic weather cycling continue without console errors. Retested the new markup with live camera playback.
 
 Browser checks were performed in the Codex in-app browser. This was not a cross-engine Safari/Firefox test. External bibliography links were preserved and checked for valid structure; their remote availability was not exhaustively rechecked.

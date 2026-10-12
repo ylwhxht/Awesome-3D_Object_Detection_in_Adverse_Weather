@@ -194,7 +194,7 @@
         weatherElapsed %= cycleSeconds;
         setWeather((weatherIndex + 1) % conditions.length);
       }
-      cycleProgress.style.transform = `scaleX(${weatherElapsed / cycleSeconds})`;
+      if (cycleProgress) cycleProgress.style.transform = `scaleX(${weatherElapsed / cycleSeconds})`;
       cameraX += (pointerX - cameraX) * .07; cameraY += (pointerY - cameraY) * .07;
       draw();
     }
@@ -214,6 +214,7 @@
   }
   const descriptions = { clear: 'A clear view. A starting point.', fog: 'Find the signal through the fog.', rain: 'Read the scene beyond the rain.', snow: 'Keep the geometry. Lose the noise.' };
   function syncCamera() {
+    if (!camera) return; // Older cached HTML can briefly load the newly deployed script.
     if (paused || !inView || document.hidden) { camera.pause(); return; }
     if (!camera.paused || camera.error) return;
     const revision = cameraRevision;
@@ -240,13 +241,22 @@
       else el.removeAttribute('aria-current');
     });
     document.getElementById('weather-caption').textContent = descriptions[weather];
-    document.getElementById('cycle-position').textContent = `AUTO / 0${index + 1}`;
-    document.getElementById('cycle-next').textContent = `NEXT: ${conditions[(index + 1) % conditions.length].toUpperCase()}`;
-    document.getElementById('camera-weather').textContent = weather[0].toUpperCase() + weather.slice(1);
+    for (const [id, text] of Object.entries({
+      'cycle-position': `AUTO / 0${index + 1}`,
+      'cycle-next': `NEXT: ${conditions[(index + 1) % conditions.length].toUpperCase()}`,
+      'camera-weather': weather[0].toUpperCase() + weather.slice(1)
+    })) {
+      const label = document.getElementById(id);
+      if (label) label.textContent = text;
+    }
+    canvas.setAttribute('aria-label', `Illustrated moving 3D point-cloud road, scanning waves and tracked vehicles in ${weather === 'clear' ? 'clear weather' : weather}`);
+    if (!camera) {
+      document.querySelectorAll('.weather-switch [data-weather]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.weather === weather)));
+      draw(); return;
+    }
     const credit = document.getElementById('camera-source');
     credit.textContent = `${source.name} ↗`; credit.href = source.url;
     credit.title = `${source.name} · ${source.sequence} · ${source.license}`;
-    canvas.setAttribute('aria-label', `Illustrated moving 3D point-cloud road, scanning waves and tracked vehicles in ${weather === 'clear' ? 'clear weather' : weather}`);
     cameraRevision++;
     camera.pause();
     cameraFeed.dataset.ready = 'false'; cameraMessage.hidden = true;
@@ -257,9 +267,11 @@
     camera.load(); syncCamera();
     draw();
   }
-  camera.muted = true;
-  camera.addEventListener('loadeddata', () => { cameraFeed.dataset.ready = 'true'; cameraMessage.hidden = true; });
-  camera.addEventListener('error', showCameraError);
+  if (camera) {
+    camera.muted = true;
+    camera.addEventListener('loadeddata', () => { cameraFeed.dataset.ready = 'true'; cameraMessage.hidden = true; });
+    camera.addEventListener('error', showCameraError);
+  }
   lab.addEventListener('pointermove', event => {
     if (event.pointerType === 'touch') return;
     const rect = lab.getBoundingClientRect();
@@ -288,6 +300,7 @@
   document.addEventListener('visibilitychange', schedule);
   new IntersectionObserver(entries => { inView = entries[0].isIntersecting; schedule(); }).observe(lab);
   new ResizeObserver(resize).observe(canvas);
-  if (camera.readyState >= 2) cameraFeed.dataset.ready = 'true';
+  if (camera?.readyState >= 2) cameraFeed.dataset.ready = 'true';
+  if (!camera) setWeather(0);
   resize(); syncPause();
 })();
